@@ -1,0 +1,76 @@
+"use client";
+import Link from "next/link";
+import { use, useEffect, useState } from "react";
+import { api, shrinkImage, type Product } from "@/lib/client";
+import { CardList } from "@/components/ProductCard";
+import { useProfile, hasProfile } from "@/components/ProfileProvider";
+import { Report } from "@/components/Report";
+import { Thumb } from "@/components/Thumb";
+import { useToast } from "@/components/Toast";
+
+export default function ProductPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = use(params);
+  const { profile, toggleFav, pushHistory, compare, toggleCompare } = useProfile();
+  const toast = useToast();
+  const [p, setP] = useState<Product | null | undefined>(undefined);
+  const [alts, setAlts] = useState<Product[]>([]);
+  const [photoMsg, setPhotoMsg] = useState("");
+
+  useEffect(() => {
+    api<Product>(`/api/products/${encodeURIComponent(id)}`).then((x) => { setP(x); pushHistory(x.id); }).catch(() => setP(null));
+  }, [id, pushHistory]);
+  useEffect(() => {
+    if (!p) return;
+    const avoid = profile.avoidFlags.join(",");
+    api<{ items: Product[] }>(`/api/products/${encodeURIComponent(p.id)}/alternatives${avoid ? `?avoid=${avoid}` : ""}`).then((r) => setAlts(r.items.slice(0, 3))).catch(() => setAlts([]));
+  }, [p, profile.avoidFlags]);
+
+  async function uploadPhoto(file: File) {
+    if (!p) return;
+    setPhotoMsg("Caricamento della foto…");
+    try {
+      const fd = new FormData(); fd.append("photo", await shrinkImage(file, 1200), "photo.jpg");
+      const r = await api<{ bytes: number }>(`/api/products/${encodeURIComponent(p.id)}/photo`, { method: "POST", body: fd });
+      setP({ ...p, hasPhoto: true, updatedAt: new Date().toISOString() }); setPhotoMsg(""); toast(`Foto salvata (${Math.round(r.bytes / 1024)} KB).`);
+    } catch (e) { setPhotoMsg((e as Error).message); }
+  }
+
+  if (p === undefined) return <p className="empty"><span className="spinner" /> Caricamento…</p>;
+  if (p === null) return <div className="view"><p className="notice warn">Prodotto non trovato.</p><Link href="/">Torna alla ricerca</Link></div>;
+  const fav = profile.favorites.includes(p.id);
+  const inCmp = compare.includes(p.id);
+
+  return (
+    <div className="view">
+      <div className="hero">
+        <Thumb p={p} size={120} className="hero-img" />
+        <div style={{ minWidth: 0 }}>
+          <h2 className="page-title">{p.name}</h2>
+          <div className="hint">{p.brand}{p.brand ? " · " : ""}{p.category}</div>
+          {p.gtin && <div className="gtin">EAN {p.gtin}</div>}
+        </div>
+      </div>
+      <div className="row">
+        <button className={`btn ${fav ? "" : "ghost"}`} type="button" onClick={() => { const a = toggleFav(p.id); toast(a ? "Aggiunto ai preferiti." : "Rimosso dai preferiti."); }}>{fav ? "★ Nei preferiti" : "☆ Aggiungi ai preferiti"}</button>
+        <button className="btn ghost" type="button" onClick={() => { const m = toggleCompare(p.id); if (m) toast(m); }}>{inCmp ? "Togli dal confronto" : "Confronta"}</button>
+        <span className="btn ghost filebtn">{p.hasPhoto ? "Cambia foto" : "Aggiungi foto"}
+          <input type="file" accept="image/*" capture="environment" aria-label="Foto del prodotto" onChange={(e) => e.target.files?.[0] && uploadPhoto(e.target.files[0])} /></span>
+        <Link className="btn ghost" href={`/p/${encodeURIComponent(p.id)}/modifica`}>{p.origin === "obf" ? "Correggi" : "Modifica"}</Link>
+      </div>
+      {photoMsg && <p className="hint">{photoMsg}</p>}
+      <div className="panel">
+        {p.inci ? <Report inci={p.inci} mode={p.mode} /> : (
+          <div className="missing"><b>Manca la lista ingredienti.</b> Fotografa la scritta INCI o Ingredients sulla confezione per completare la scheda e ottenere il voto.
+            <div style={{ marginTop: 8 }}><Link className="btn" href={`/p/${encodeURIComponent(p.id)}/modifica`}>Aggiungi l&apos;INCI</Link></div></div>
+        )}
+      </div>
+      <div className="panel">
+        <span className="label">Alternative migliori nella stessa categoria</span>
+        <CardList items={alts} empty={`Nessuna alternativa con voto più alto${hasProfile(profile) ? " e adatta al tuo profilo" : ""}, per ora.`} />
+      </div>
+      {p.origin === "obf"
+        ? <p className="hint">Dati da <a href={`https://world.openbeautyfacts.org/product/${p.gtin}`} target="_blank" rel="noopener noreferrer">Open Beauty Facts</a> (licenza ODbL), inseriti da volontari: in caso di dubbio vale l&apos;etichetta.</p>
+        : p.source && <p className="hint">Fonte INCI: {p.source}. Gli ingredienti in negozio possono cambiare: in caso di dubbio vale l&apos;etichetta.</p>}
+    </div>
+  );
+}

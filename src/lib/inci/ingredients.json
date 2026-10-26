@@ -1,0 +1,5185 @@
+[
+{
+"name": "Aqua",
+"aliases": [
+"water",
+"eau",
+"aqua/water",
+"purified water",
+"acqua",
+"wasser",
+"agua"
+],
+"r": 4,
+"flags": [],
+"fn": "Solvente",
+"note": "La base di quasi tutti i cosmetici."
+},
+{
+"name": "Glycerin",
+"aliases": [
+"glycerol",
+"glycerine",
+"glicerina",
+"glycérine"
+],
+"r": 4,
+"flags": [],
+"fn": "Umettante",
+"note": "Trattiene l'acqua; tra gli idratanti più studiati e tollerati."
+},
+{
+"name": "Propanediol",
+"aliases": [
+"1,3-propanediol"
+],
+"r": 4,
+"flags": [],
+"fn": "Umettante, solvente",
+"note": "Di solito di origine vegetale, ben tollerato."
+},
+{
+"name": "Propylene Glycol",
+"aliases": [],
+"r": 2,
+"flags": [
+"IRR"
+],
+"fn": "Umettante, solvente",
+"note": "Ben tollerato da quasi tutti, ma è un allergene noto per una piccola quota di persone."
+},
+{
+"name": "Butylene Glycol",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Umettante, solvente",
+"note": "Ben tollerato."
+},
+{
+"name": "Pentylene Glycol",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Umettante, conservante di supporto",
+"note": "Ben tollerato."
+},
+{
+"name": "Triethylene Glycol",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Solvente",
+"note": "Usato in piccole quantità, di solito come veicolo di altri ingredienti."
+},
+{
+"name": "Caprylyl Glycol",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Conservante di supporto, emolliente",
+"note": "Ben tollerato."
+},
+{
+"name": "1,2-Hexanediol",
+"aliases": [
+"hexanediol"
+],
+"r": 3,
+"flags": [],
+"fn": "Conservante di supporto, solvente",
+"note": "Ben tollerato."
+},
+{
+"name": "Alcohol",
+"aliases": [
+"ethanol",
+"alcohol denat.",
+"alcohol denat",
+"sd alcohol",
+"alcool"
+],
+"r": 1,
+"flags": [
+"ALC"
+],
+"fn": "Solvente",
+"note": "Alcol etilico: se è tra i primi ingredienti può seccare pelle e capelli."
+},
+{
+"name": "Benzyl Alcohol",
+"aliases": [],
+"r": 2,
+"flags": [
+"ALL"
+],
+"fn": "Conservante, profumo",
+"note": "Conservante delicato sotto l'1%, ma è anche un allergene da profumo da dichiarare in etichetta."
+},
+{
+"name": "Cetearyl Alcohol",
+"aliases": [
+"cetostearyl alcohol"
+],
+"r": 4,
+"flags": [],
+"fn": "Emolliente, addensante",
+"note": "Alcol grasso: ammorbidisce e non secca, al contrario dell'alcol etilico."
+},
+{
+"name": "Cetyl Alcohol",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente, addensante",
+"note": "Alcol grasso, non seccante."
+},
+{
+"name": "Stearyl Alcohol",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente, addensante",
+"note": "Alcol grasso, non seccante."
+},
+{
+"name": "Brassica Alcohol",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente, addensante",
+"note": "Alcol grasso di origine vegetale."
+},
+{
+"name": "Malus Domestica Fruit Water",
+"aliases": [
+"apple water"
+],
+"r": 3,
+"flags": [],
+"fn": "Solvente",
+"note": "Acqua di mela, usata al posto dell'acqua nei prodotti naturali."
+},
+{
+"name": "Aloe Barbadensis Leaf Juice",
+"aliases": [
+"aloe vera juice"
+],
+"r": 4,
+"flags": [],
+"fn": "Idratante, lenitivo",
+"note": "Succo di aloe: idrata e calma."
+},
+{
+"name": "Aloe Barbadensis Leaf Juice Powder",
+"aliases": [
+"aloe vera powder"
+],
+"r": 4,
+"flags": [],
+"fn": "Idratante, lenitivo",
+"note": "Aloe in polvere ricostituita."
+},
+{
+"name": "Aloe Barbadensis Leaf Extract",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Idratante, lenitivo",
+"note": ""
+},
+{
+"name": "Maris Sal",
+"aliases": [
+"sea salt",
+"sal maris"
+],
+"r": 2,
+"flags": [],
+"fn": "Addensante, texturizzante",
+"note": "Sale marino: negli spray dà texture, ma assorbe acqua e può seccare."
+},
+{
+"name": "Sodium Chloride",
+"aliases": [
+"salt"
+],
+"r": 3,
+"flags": [],
+"fn": "Addensante",
+"note": "Sale da cucina, usato per addensare gli shampoo."
+},
+{
+"name": "Calcium Chloride",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Addensante",
+"note": ""
+},
+{
+"name": "Sodium Lauryl Sulfate",
+"aliases": [
+"sls"
+],
+"r": 1,
+"flags": [
+"SOL",
+"IRR"
+],
+"fn": "Tensioattivo",
+"note": "Tensioattivo aggressivo: sgrassa molto e può irritare la cute."
+},
+{
+"name": "Ammonium Lauryl Sulfate",
+"aliases": [
+"als"
+],
+"r": 1,
+"flags": [
+"SOL",
+"IRR"
+],
+"fn": "Tensioattivo",
+"note": "Aggressivo quanto lo SLS."
+},
+{
+"name": "Sodium Laureth Sulfate",
+"aliases": [
+"sles"
+],
+"r": 2,
+"flags": [
+"SOL",
+"PEG"
+],
+"fn": "Tensioattivo",
+"note": "Più delicato dello SLS, ma comunque deciso. Normale negli shampoo da supermercato."
+},
+{
+"name": "Ammonium Laureth Sulfate",
+"aliases": [
+"ales"
+],
+"r": 2,
+"flags": [
+"SOL",
+"PEG"
+],
+"fn": "Tensioattivo",
+"note": "Simile allo SLES."
+},
+{
+"name": "Sodium Coco-Sulfate",
+"aliases": [
+"sodium coco sulfate"
+],
+"r": 2,
+"flags": [
+"SOL"
+],
+"fn": "Tensioattivo",
+"note": "Di origine vegetale ma chimicamente vicino allo SLS: deciso."
+},
+{
+"name": "TEA-Dodecylbenzenesulfonate",
+"aliases": [],
+"r": 1,
+"flags": [
+"IRR"
+],
+"fn": "Tensioattivo",
+"note": "Tensioattivo aggressivo."
+},
+{
+"name": "Sodium Xylenesulfonate",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Idrotropo",
+"note": "Aiuta a sciogliere gli altri ingredienti; neutro."
+},
+{
+"name": "Cocamidopropyl Betaine",
+"aliases": [
+"capb"
+],
+"r": 3,
+"flags": [],
+"fn": "Tensioattivo delicato",
+"note": "Rende più delicati gli altri tensioattivi. Raramente può dare allergia."
+},
+{
+"name": "Coco-Betaine",
+"aliases": [
+"coco betaine"
+],
+"r": 3,
+"flags": [],
+"fn": "Tensioattivo delicato",
+"note": ""
+},
+{
+"name": "Coco-Glucoside",
+"aliases": [
+"coco glucoside"
+],
+"r": 4,
+"flags": [],
+"fn": "Tensioattivo delicato",
+"note": "Da zuccheri e cocco, tra i più delicati."
+},
+{
+"name": "Decyl Glucoside",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Tensioattivo delicato",
+"note": "Tra i più delicati."
+},
+{
+"name": "Lauryl Glucoside",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Tensioattivo delicato",
+"note": "Tra i più delicati."
+},
+{
+"name": "Caprylyl/Capryl Glucoside",
+"aliases": [
+"caprylyl capryl glucoside"
+],
+"r": 4,
+"flags": [],
+"fn": "Tensioattivo delicato",
+"note": ""
+},
+{
+"name": "Heptyl Glucoside",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Tensioattivo, solubilizzante",
+"note": "Delicato."
+},
+{
+"name": "Sodium Cocoamphoacetate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Tensioattivo delicato",
+"note": "Molto delicato, usato anche nei prodotti per bambini."
+},
+{
+"name": "Sodium Tallowamphoacetate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Tensioattivo delicato",
+"note": "Delicato; di origine animale (sego)."
+},
+{
+"name": "Sodium Cocoyl Glutamate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Tensioattivo delicato",
+"note": "Da aminoacidi, molto delicato."
+},
+{
+"name": "Disodium Cocoyl Glutamate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Tensioattivo delicato",
+"note": "Da aminoacidi, molto delicato."
+},
+{
+"name": "Sodium Cocoyl Isethionate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Tensioattivo delicato",
+"note": "Delicato, tipico degli shampoo solidi."
+},
+{
+"name": "Disodium Laureth Sulfosuccinate",
+"aliases": [],
+"r": 3,
+"flags": [
+"PEG"
+],
+"fn": "Tensioattivo delicato",
+"note": ""
+},
+{
+"name": "Disodium Lauryl Sulfosuccinate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Tensioattivo delicato",
+"note": ""
+},
+{
+"name": "Cocamide MEA",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Addensante, schiumogeno",
+"note": "Accettabile negli shampoo."
+},
+{
+"name": "Cocamide DEA",
+"aliases": [],
+"r": 1,
+"flags": [
+"IRR"
+],
+"fn": "Addensante, schiumogeno",
+"note": "Può formare nitrosammine; in calo d'uso."
+},
+{
+"name": "Laureth-2",
+"aliases": [],
+"r": 2,
+"flags": [
+"PEG"
+],
+"fn": "Emulsionante",
+"note": "Etossilato: può contenere residui di lavorazione (1,4-diossano)."
+},
+{
+"name": "Laureth-4",
+"aliases": [],
+"r": 2,
+"flags": [
+"PEG"
+],
+"fn": "Emulsionante",
+"note": "Etossilato: può contenere residui di lavorazione."
+},
+{
+"name": "Trideceth-10",
+"aliases": [],
+"r": 2,
+"flags": [
+"PEG"
+],
+"fn": "Emulsionante",
+"note": "Etossilato."
+},
+{
+"name": "Sodium Laureth-11 Carboxylate",
+"aliases": [
+"sodium laureth-11"
+],
+"r": 2,
+"flags": [
+"PEG"
+],
+"fn": "Tensioattivo delicato",
+"note": "Delicato ma etossilato."
+},
+{
+"name": "Polysorbate 20",
+"aliases": [],
+"r": 2,
+"flags": [
+"PEG"
+],
+"fn": "Solubilizzante",
+"note": "Etossilato."
+},
+{
+"name": "Polysorbate 80",
+"aliases": [],
+"r": 2,
+"flags": [
+"PEG"
+],
+"fn": "Emulsionante",
+"note": "Etossilato."
+},
+{
+"name": "Sorbitan Oleate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emulsionante",
+"note": ""
+},
+{
+"name": "PEG-7 Glyceryl Cocoate",
+"aliases": [],
+"r": 2,
+"flags": [
+"PEG"
+],
+"fn": "Emolliente, solubilizzante",
+"note": "Etossilato."
+},
+{
+"name": "PEG-18 Glyceryl Oleate/Cocoate",
+"aliases": [
+"peg-18 glyceryl oleate cocoate"
+],
+"r": 2,
+"flags": [
+"PEG"
+],
+"fn": "Emolliente, solubilizzante",
+"note": "Etossilato."
+},
+{
+"name": "PEG-6 Caprylic/Capric Glycerides",
+"aliases": [
+"peg-6 caprylic capric glycerides"
+],
+"r": 2,
+"flags": [
+"PEG"
+],
+"fn": "Emolliente, solubilizzante",
+"note": "Etossilato."
+},
+{
+"name": "PPG-5-Ceteth-20",
+"aliases": [],
+"r": 2,
+"flags": [
+"PEG"
+],
+"fn": "Emulsionante",
+"note": "Etossilato."
+},
+{
+"name": "PEG-40 Hydrogenated Castor Oil",
+"aliases": [],
+"r": 2,
+"flags": [
+"PEG"
+],
+"fn": "Solubilizzante",
+"note": "Etossilato, spesso usato per sciogliere i profumi."
+},
+{
+"name": "Guar Hydroxypropyltrimonium Chloride",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Condizionante",
+"note": "Derivato del guar: districa e ammorbidisce."
+},
+{
+"name": "Hydroxypropyl Guar Hydroxypropyltrimonium Chloride",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Condizionante",
+"note": "Derivato del guar."
+},
+{
+"name": "Polyquaternium-7",
+"aliases": [],
+"r": 2,
+"flags": [
+"POLY"
+],
+"fn": "Condizionante, filmante",
+"note": "Polimero sintetico."
+},
+{
+"name": "Polyquaternium-10",
+"aliases": [],
+"r": 2,
+"flags": [
+"POLY"
+],
+"fn": "Condizionante",
+"note": "Derivato della cellulosa modificata."
+},
+{
+"name": "Polyquaternium-37",
+"aliases": [],
+"r": 2,
+"flags": [
+"POLY"
+],
+"fn": "Condizionante, addensante",
+"note": "Polimero sintetico."
+},
+{
+"name": "Polyquaternium-68",
+"aliases": [],
+"r": 2,
+"flags": [
+"POLY"
+],
+"fn": "Condizionante, fissante",
+"note": "Polimero sintetico."
+},
+{
+"name": "Polyquaternium-69",
+"aliases": [],
+"r": 2,
+"flags": [
+"POLY"
+],
+"fn": "Fissante",
+"note": "Polimero sintetico."
+},
+{
+"name": "Cetrimonium Chloride",
+"aliases": [],
+"r": 2,
+"flags": [
+"IRR"
+],
+"fn": "Condizionante, antistatico",
+"note": "Utile nei balsami; può irritare in concentrazione alta."
+},
+{
+"name": "Behentrimonium Chloride",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Condizionante",
+"note": "Districante tipico dei balsami."
+},
+{
+"name": "Cocodimonium Hydroxypropyl Hydrolyzed Collagen",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Condizionante",
+"note": "Proteina modificata di origine animale."
+},
+{
+"name": "Cocodimonium Hydroxypropyl Hydrolyzed Silk",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Condizionante",
+"note": "Proteina della seta modificata."
+},
+{
+"name": "Cocodimonium Hydroxypropyl Hydrolyzed Wheat Protein",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Condizionante",
+"note": ""
+},
+{
+"name": "Panthenol",
+"aliases": [
+"provitamin b5",
+"d-panthenol",
+"dexpanthenol"
+],
+"r": 4,
+"flags": [
+"ATT"
+],
+"fn": "Idratante, lenitivo",
+"note": "Provitamina B5: idrata e ammorbidisce pelle e capelli."
+},
+{
+"name": "Niacinamide",
+"aliases": [
+"vitamin b3"
+],
+"r": 4,
+"flags": [
+"ATT"
+],
+"fn": "Lenitivo, rinforza la barriera",
+"note": "Vitamina B3, molto studiata e ben tollerata."
+},
+{
+"name": "Betaine",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Umettante",
+"note": "Dalla barbabietola: idrata e rende più delicati i tensioattivi."
+},
+{
+"name": "Sodium PCA",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Umettante",
+"note": "Presente naturalmente nella pelle."
+},
+{
+"name": "Arginine",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Aminoacido, condizionante",
+"note": ""
+},
+{
+"name": "Inulin",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Prebiotico, idratante",
+"note": ""
+},
+{
+"name": "Hydrolyzed Keratin",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Condizionante",
+"note": "Proteina di origine animale."
+},
+{
+"name": "Hydrolyzed Wheat Protein",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Condizionante",
+"note": ""
+},
+{
+"name": "Hydrolyzed Corn Protein",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Condizionante",
+"note": ""
+},
+{
+"name": "Hydrolyzed Soy Protein",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Condizionante",
+"note": ""
+},
+{
+"name": "Hydrolyzed Corn Starch",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Filmante, texturizzante",
+"note": "Amido di mais: dà tenuta leggera in modo naturale."
+},
+{
+"name": "Urea",
+"aliases": [],
+"r": 4,
+"flags": [
+"ATT"
+],
+"fn": "Idratante",
+"note": ""
+},
+{
+"name": "Allantoin",
+"aliases": [],
+"r": 4,
+"flags": [
+"ATT"
+],
+"fn": "Lenitivo",
+"note": ""
+},
+{
+"name": "Bisabolol",
+"aliases": [
+"alpha-bisabolol"
+],
+"r": 4,
+"flags": [
+"ATT"
+],
+"fn": "Lenitivo",
+"note": "Dalla camomilla: calma le irritazioni."
+},
+{
+"name": "Sodium Hyaluronate",
+"aliases": [
+"hyaluronic acid"
+],
+"r": 4,
+"flags": [
+"ATT"
+],
+"fn": "Idratante",
+"note": ""
+},
+{
+"name": "Squalane",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Tocopherol",
+"aliases": [
+"vitamin e"
+],
+"r": 4,
+"flags": [
+"ATT"
+],
+"fn": "Antiossidante",
+"note": "Vitamina E: protegge la formula e la pelle."
+},
+{
+"name": "Tocopheryl Acetate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Antiossidante",
+"note": "Forma stabile della vitamina E."
+},
+{
+"name": "Ascorbyl Palmitate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Antiossidante",
+"note": "Usato per proteggere gli oli dall'ossidazione."
+},
+{
+"name": "Lactic Acid",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Regolatore di pH",
+"note": ""
+},
+{
+"name": "Citric Acid",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Regolatore di pH",
+"note": ""
+},
+{
+"name": "Acetic Acid",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Regolatore di pH",
+"note": ""
+},
+{
+"name": "Levulinic Acid",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Conservante di supporto, profumo",
+"note": "Ammesso nei cosmetici naturali."
+},
+{
+"name": "Sodium Levulinate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Conservante di supporto",
+"note": "Ammesso nei cosmetici naturali."
+},
+{
+"name": "Sodium Anisate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Conservante di supporto",
+"note": "Ammesso nei cosmetici naturali."
+},
+{
+"name": "P-Anisic Acid",
+"aliases": [
+"p anisic acid"
+],
+"r": 4,
+"flags": [],
+"fn": "Conservante di supporto",
+"note": ""
+},
+{
+"name": "Glyceryl Caprylate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente, conservante di supporto",
+"note": ""
+},
+{
+"name": "Glyceryl Undecylenate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente, conservante di supporto",
+"note": ""
+},
+{
+"name": "Sodium Hydroxide",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Regolatore di pH",
+"note": "Neutralizzato nella formula finale."
+},
+{
+"name": "Sodium Citrate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Regolatore di pH",
+"note": ""
+},
+{
+"name": "Tetrasodium EDTA",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Chelante",
+"note": "Funziona bene ma è poco biodegradabile."
+},
+{
+"name": "Disodium EDTA",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Chelante",
+"note": "Poco biodegradabile."
+},
+{
+"name": "Sodium Phytate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Chelante",
+"note": "Alternativa naturale all'EDTA."
+},
+{
+"name": "Aminomethyl Propanol",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Regolatore di pH",
+"note": ""
+},
+{
+"name": "Sodium Benzoate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Conservante",
+"note": "Conservante delicato, ammesso anche nei naturali."
+},
+{
+"name": "Potassium Sorbate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Conservante",
+"note": "Conservante delicato."
+},
+{
+"name": "Benzoic Acid",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Conservante",
+"note": ""
+},
+{
+"name": "Dehydroacetic Acid",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Conservante",
+"note": ""
+},
+{
+"name": "Phenoxyethanol",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Conservante",
+"note": "Sicuro fino all'1% secondo l'SCCS; può irritare le pelli più sensibili."
+},
+{
+"name": "Sodium Salicylate",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Conservante",
+"note": ""
+},
+{
+"name": "Methylparaben",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Conservante",
+"note": "Considerato sicuro ai livelli consentiti."
+},
+{
+"name": "Ethylparaben",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Conservante",
+"note": ""
+},
+{
+"name": "Propylparaben",
+"aliases": [],
+"r": 1,
+"flags": [],
+"fn": "Conservante",
+"note": "Limitato dall'UE per dubbi sull'attività ormonale."
+},
+{
+"name": "Butylparaben",
+"aliases": [],
+"r": 1,
+"flags": [],
+"fn": "Conservante",
+"note": "Limitato dall'UE per dubbi sull'attività ormonale."
+},
+{
+"name": "Methylisothiazolinone",
+"aliases": [
+"mit"
+],
+"r": 0,
+"flags": [
+"IRR"
+],
+"fn": "Conservante",
+"note": "Forte allergene: vietato nei prodotti da lasciare in posa."
+},
+{
+"name": "Methylchloroisothiazolinone",
+"aliases": [
+"cmit"
+],
+"r": 0,
+"flags": [
+"IRR"
+],
+"fn": "Conservante",
+"note": "Forte allergene."
+},
+{
+"name": "Imidazolidinyl Urea",
+"aliases": [],
+"r": 0,
+"flags": [
+"FORM"
+],
+"fn": "Conservante",
+"note": "Rilascia formaldeide."
+},
+{
+"name": "Diazolidinyl Urea",
+"aliases": [],
+"r": 0,
+"flags": [
+"FORM"
+],
+"fn": "Conservante",
+"note": "Rilascia formaldeide."
+},
+{
+"name": "DMDM Hydantoin",
+"aliases": [],
+"r": 0,
+"flags": [
+"FORM"
+],
+"fn": "Conservante",
+"note": "Rilascia formaldeide."
+},
+{
+"name": "Sodium Hydroxymethylglycinate",
+"aliases": [],
+"r": 0,
+"flags": [
+"FORM"
+],
+"fn": "Conservante",
+"note": "Rilascia formaldeide."
+},
+{
+"name": "Helianthus Annuus Seed Oil",
+"aliases": [
+"sunflower oil"
+],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": "Olio di girasole."
+},
+{
+"name": "Helianthus Annuus Hybrid Oil",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": "Olio di girasole alto oleico."
+},
+{
+"name": "Simmondsia Chinensis Seed Oil",
+"aliases": [
+"jojoba oil"
+],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": "Olio di jojoba, simile al sebo umano."
+},
+{
+"name": "Argania Spinosa Kernel Oil",
+"aliases": [
+"argan oil"
+],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": "Olio di argan."
+},
+{
+"name": "Butyrospermum Parkii Butter",
+"aliases": [
+"shea butter"
+],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": "Burro di karité."
+},
+{
+"name": "Cocos Nucifera Oil",
+"aliases": [
+"coconut oil"
+],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": "Olio di cocco."
+},
+{
+"name": "Cocos Nucifera Fruit Juice",
+"aliases": [
+"coconut water"
+],
+"r": 3,
+"flags": [],
+"fn": "Idratante",
+"note": ""
+},
+{
+"name": "Olea Europaea Fruit Oil",
+"aliases": [
+"olive oil"
+],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Vitis Vinifera Seed Oil",
+"aliases": [
+"grape seed oil"
+],
+"r": 4,
+"flags": [],
+"fn": "Emolliente, antiossidante",
+"note": "Olio di vinaccioli."
+},
+{
+"name": "Vitis Vinifera Seed Extract",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Antiossidante",
+"note": ""
+},
+{
+"name": "Linum Usitatissimum Seed Oil",
+"aliases": [
+"linseed oil"
+],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": "Olio di semi di lino."
+},
+{
+"name": "Linum Usitatissimum Seed Extract",
+"aliases": [
+"linseed extract"
+],
+"r": 3,
+"flags": [],
+"fn": "Condizionante",
+"note": "Estratto di semi di lino."
+},
+{
+"name": "Prunus Amygdalus Dulcis Oil",
+"aliases": [
+"sweet almond oil"
+],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": "Olio di mandorle dolci."
+},
+{
+"name": "Zea Mays Oil",
+"aliases": [
+"corn oil"
+],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Cucurbita Pepo Seed Oil",
+"aliases": [
+"pumpkin seed oil"
+],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": "Olio di semi di zucca."
+},
+{
+"name": "Ricinus Communis Seed Oil",
+"aliases": [
+"castor oil"
+],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Persea Gratissima Fruit Extract",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Caprylic/Capric Triglyceride",
+"aliases": [
+"caprylic capric triglyceride"
+],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": "Da cocco: leggero e ben tollerato."
+},
+{
+"name": "Dicaprylyl Carbonate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Dicaprylyl Ether",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Isopropyl Palmitate",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Emolliente",
+"note": "Può essere comedogeno sulla pelle del viso."
+},
+{
+"name": "Isopropyl Myristate",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Emolliente",
+"note": "Può essere comedogeno."
+},
+{
+"name": "Decyl Oleate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Isoamyl Laurate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Lauryl Laurate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Glyceryl Oleate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente, emulsionante",
+"note": ""
+},
+{
+"name": "Glyceryl Stearate",
+"aliases": [
+"glyceryl stearate se"
+],
+"r": 3,
+"flags": [],
+"fn": "Emulsionante",
+"note": ""
+},
+{
+"name": "Glycol Distearate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Opacizzante",
+"note": "Rende lo shampoo perlato."
+},
+{
+"name": "Lecithin",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente, emulsionante",
+"note": ""
+},
+{
+"name": "Hydrogenated Palm Glycerides Citrate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emulsionante",
+"note": ""
+},
+{
+"name": "Hydrogenated Vegetable Glycerides Citrate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emulsionante",
+"note": ""
+},
+{
+"name": "PCA Glyceryl Oleate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Brassicyl Isoleucinate Esylate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Condizionante",
+"note": "Alternativa vegetale ai condizionanti cationici."
+},
+{
+"name": "Polyglyceryl-3 Polyricinoleate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emulsionante",
+"note": ""
+},
+{
+"name": "Paraffinum Liquidum",
+"aliases": [
+"mineral oil",
+"paraffin oil"
+],
+"r": 1,
+"flags": [
+"MIN"
+],
+"fn": "Emolliente",
+"note": "Olio minerale: occlusivo, senza nutrienti."
+},
+{
+"name": "Petrolatum",
+"aliases": [
+"vaseline"
+],
+"r": 1,
+"flags": [
+"MIN"
+],
+"fn": "Occlusivo",
+"note": "Vaselina."
+},
+{
+"name": "Isododecane",
+"aliases": [],
+"r": 2,
+"flags": [
+"MIN"
+],
+"fn": "Solvente volatile",
+"note": "Idrocarburo sintetico che evapora: dà leggerezza."
+},
+{
+"name": "Isohexadecane",
+"aliases": [],
+"r": 2,
+"flags": [
+"MIN"
+],
+"fn": "Emolliente",
+"note": "Idrocarburo sintetico."
+},
+{
+"name": "C11-13 Isoalkane",
+"aliases": [],
+"r": 2,
+"flags": [
+"MIN"
+],
+"fn": "Emolliente",
+"note": "Idrocarburo sintetico."
+},
+{
+"name": "Dodecane",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Emolliente",
+"note": "Idrocarburo, oggi spesso di origine vegetale."
+},
+{
+"name": "Hydrogenated Polyisobutene",
+"aliases": [],
+"r": 2,
+"flags": [
+"MIN"
+],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Dimethicone",
+"aliases": [],
+"r": 1,
+"flags": [
+"SIL"
+],
+"fn": "Siliconico, filmante",
+"note": "Silicone non idrosolubile: lucida subito ma si accumula con gli shampoo delicati."
+},
+{
+"name": "Dimethiconol",
+"aliases": [],
+"r": 1,
+"flags": [
+"SIL"
+],
+"fn": "Siliconico, filmante",
+"note": "Silicone non idrosolubile."
+},
+{
+"name": "Amodimethicone",
+"aliases": [],
+"r": 1,
+"flags": [
+"SIL"
+],
+"fn": "Siliconico, condizionante",
+"note": "Silicone che si deposita in modo mirato; si accumula."
+},
+{
+"name": "Bis-Aminopropyl Dimethicone",
+"aliases": [],
+"r": 1,
+"flags": [
+"SIL"
+],
+"fn": "Siliconico, condizionante",
+"note": ""
+},
+{
+"name": "Phenyl Trimethicone",
+"aliases": [],
+"r": 1,
+"flags": [
+"SIL"
+],
+"fn": "Siliconico, lucidante",
+"note": ""
+},
+{
+"name": "Trimethylsiloxyphenyl Dimethicone",
+"aliases": [],
+"r": 1,
+"flags": [
+"SIL"
+],
+"fn": "Siliconico, lucidante",
+"note": ""
+},
+{
+"name": "Cyclomethicone",
+"aliases": [],
+"r": 1,
+"flags": [
+"SIL"
+],
+"fn": "Silicone volatile",
+"note": ""
+},
+{
+"name": "Cyclopentasiloxane",
+"aliases": [
+"d5"
+],
+"r": 0,
+"flags": [
+"SIL"
+],
+"fn": "Silicone volatile",
+"note": "Limitato dall'UE per persistenza ambientale."
+},
+{
+"name": "Carbomer",
+"aliases": [],
+"r": 2,
+"flags": [
+"POLY"
+],
+"fn": "Addensante",
+"note": "Polimero sintetico."
+},
+{
+"name": "Acrylates Copolymer",
+"aliases": [],
+"r": 1,
+"flags": [
+"POLY"
+],
+"fn": "Filmante, fissante",
+"note": "Polimero sintetico poco biodegradabile."
+},
+{
+"name": "Acrylates/C10-30 Alkyl Acrylate Crosspolymer",
+"aliases": [],
+"r": 1,
+"flags": [
+"POLY"
+],
+"fn": "Addensante",
+"note": "Polimero sintetico."
+},
+{
+"name": "Acrylates/Stearyl Methacrylate Copolymer",
+"aliases": [],
+"r": 1,
+"flags": [
+"POLY"
+],
+"fn": "Stabilizzante",
+"note": "Polimero sintetico."
+},
+{
+"name": "Acrylic Acid/VP Crosspolymer",
+"aliases": [],
+"r": 1,
+"flags": [
+"POLY"
+],
+"fn": "Fissante",
+"note": "Polimero sintetico."
+},
+{
+"name": "VP/VA Copolymer",
+"aliases": [],
+"r": 1,
+"flags": [
+"POLY"
+],
+"fn": "Fissante",
+"note": "Polimero sintetico tipico di gel e lacche."
+},
+{
+"name": "PVP",
+"aliases": [],
+"r": 2,
+"flags": [
+"POLY"
+],
+"fn": "Fissante",
+"note": ""
+},
+{
+"name": "Xanthan Gum",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Addensante, tenuta leggera",
+"note": "Gomma naturale da fermentazione."
+},
+{
+"name": "Algin",
+"aliases": [
+"sodium alginate"
+],
+"r": 4,
+"flags": [],
+"fn": "Addensante, tenuta leggera",
+"note": "Dalle alghe."
+},
+{
+"name": "Glucomannan",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Addensante, fissante naturale",
+"note": "Dalla radice di konjac."
+},
+{
+"name": "Caesalpinia Spinosa Gum",
+"aliases": [
+"tara gum"
+],
+"r": 4,
+"flags": [],
+"fn": "Addensante",
+"note": "Gomma di tara."
+},
+{
+"name": "Guar Gum",
+"aliases": [
+"cyamopsis tetragonoloba gum"
+],
+"r": 4,
+"flags": [],
+"fn": "Addensante",
+"note": ""
+},
+{
+"name": "Hydroxyethylcellulose",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Addensante",
+"note": ""
+},
+{
+"name": "Chitosan",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Fissante naturale",
+"note": "Polimero naturale, tipico delle mousse naturali."
+},
+{
+"name": "Shellac",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Fissante naturale",
+"note": "Gommalacca, resina naturale."
+},
+{
+"name": "Silica",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Opacizzante, addensante",
+"note": ""
+},
+{
+"name": "Piroctone Olamine",
+"aliases": [],
+"r": 3,
+"flags": [
+"ATT"
+],
+"fn": "Antiforfora",
+"note": "Principio attivo antiforfora efficace e ben studiato."
+},
+{
+"name": "Climbazole",
+"aliases": [],
+"r": 2,
+"flags": [
+"ATT"
+],
+"fn": "Antiforfora",
+"note": "Antifungino efficace; ammesso con limiti di concentrazione."
+},
+{
+"name": "Zinc Pyrithione",
+"aliases": [],
+"r": 0,
+"flags": [
+"BAN"
+],
+"fn": "Antiforfora",
+"note": "Vietato nei cosmetici UE dal 2022."
+},
+{
+"name": "Salicylic Acid",
+"aliases": [],
+"r": 3,
+"flags": [
+"ATT"
+],
+"fn": "Esfoliante, antiforfora",
+"note": "Scioglie le squame; ammesso con limiti."
+},
+{
+"name": "Undecylenic Acid",
+"aliases": [],
+"r": 3,
+"flags": [
+"ATT"
+],
+"fn": "Antifungino",
+"note": ""
+},
+{
+"name": "Caffeine",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Stimolante",
+"note": "Gli effetti contro la caduta sono poco dimostrati, soprattutto negli shampoo."
+},
+{
+"name": "Menthol",
+"aliases": [],
+"r": 2,
+"flags": [
+"IRR"
+],
+"fn": "Rinfrescante",
+"note": "Dà freschezza, ma può irritare le cuti sensibili."
+},
+{
+"name": "Camphor",
+"aliases": [],
+"r": 1,
+"flags": [
+"IRR"
+],
+"fn": "Rinfrescante",
+"note": "Può irritare, sconsigliato su cute sensibile."
+},
+{
+"name": "Rosmarinus Officinalis Leaf Extract",
+"aliases": [
+"rosemary extract"
+],
+"r": 3,
+"flags": [],
+"fn": "Antiossidante, tonificante",
+"note": ""
+},
+{
+"name": "Rosmarinus Officinalis Leaf Oil",
+"aliases": [
+"rosemary oil"
+],
+"r": 2,
+"flags": [
+"PROF"
+],
+"fn": "Profumo, tonificante",
+"note": "Olio essenziale: contiene allergeni."
+},
+{
+"name": "Nelumbo Nucifera Flower Extract",
+"aliases": [
+"lotus extract"
+],
+"r": 3,
+"flags": [],
+"fn": "Estratto vegetale",
+"note": "Fiore di loto."
+},
+{
+"name": "Oryza Sativa Extract",
+"aliases": [
+"rice extract"
+],
+"r": 3,
+"flags": [],
+"fn": "Estratto vegetale",
+"note": "Riso."
+},
+{
+"name": "Oryza Sativa Bran Oil",
+"aliases": [
+"rice bran oil"
+],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Chamomilla Recutita Flower Extract",
+"aliases": [
+"chamomile extract"
+],
+"r": 3,
+"flags": [],
+"fn": "Lenitivo",
+"note": ""
+},
+{
+"name": "Calendula Officinalis Flower Extract",
+"aliases": [
+"calendula extract"
+],
+"r": 3,
+"flags": [],
+"fn": "Lenitivo",
+"note": ""
+},
+{
+"name": "Lactobacillus Ferment",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Probiotico",
+"note": ""
+},
+{
+"name": "Bertholletia Excelsa Seed Powder",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Esfoliante",
+"note": "Polvere di noce brasiliana."
+},
+{
+"name": "Lavandula Angustifolia Oil",
+"aliases": [
+"lavender oil"
+],
+"r": 2,
+"flags": [
+"PROF"
+],
+"fn": "Profumo",
+"note": "Olio essenziale: contiene allergeni."
+},
+{
+"name": "Pelargonium Graveolens Flower Oil",
+"aliases": [
+"geranium oil"
+],
+"r": 2,
+"flags": [
+"PROF"
+],
+"fn": "Profumo",
+"note": "Olio essenziale: contiene allergeni."
+},
+{
+"name": "Parfum",
+"aliases": [
+"fragrance",
+"parfum/fragrance",
+"aroma",
+"perfume",
+"flavor",
+"flavour",
+"profumo"
+],
+"r": 1,
+"flags": [
+"PROF"
+],
+"fn": "Profumo",
+"note": "Miscela non dichiarata di decine di sostanze; prima causa di allergia ai cosmetici."
+},
+{
+"name": "Limonene",
+"aliases": [],
+"r": 1,
+"flags": [
+"ALL"
+],
+"fn": "Profumo",
+"note": "Allergene da dichiarare; ossidato all'aria diventa più sensibilizzante."
+},
+{
+"name": "Linalool",
+"aliases": [],
+"r": 1,
+"flags": [
+"ALL"
+],
+"fn": "Profumo",
+"note": "Allergene da dichiarare; ossidato all'aria diventa più sensibilizzante."
+},
+{
+"name": "Geraniol",
+"aliases": [],
+"r": 1,
+"flags": [
+"ALL"
+],
+"fn": "Profumo",
+"note": "Allergene da dichiarare."
+},
+{
+"name": "Citronellol",
+"aliases": [],
+"r": 1,
+"flags": [
+"ALL"
+],
+"fn": "Profumo",
+"note": "Allergene da dichiarare."
+},
+{
+"name": "Citral",
+"aliases": [],
+"r": 1,
+"flags": [
+"ALL"
+],
+"fn": "Profumo",
+"note": "Allergene da dichiarare."
+},
+{
+"name": "Eugenol",
+"aliases": [],
+"r": 1,
+"flags": [
+"ALL"
+],
+"fn": "Profumo",
+"note": "Allergene da dichiarare."
+},
+{
+"name": "Isoeugenol",
+"aliases": [],
+"r": 1,
+"flags": [
+"ALL"
+],
+"fn": "Profumo",
+"note": "Allergene da dichiarare, tra i più sensibilizzanti."
+},
+{
+"name": "Coumarin",
+"aliases": [],
+"r": 1,
+"flags": [
+"ALL"
+],
+"fn": "Profumo",
+"note": "Allergene da dichiarare."
+},
+{
+"name": "Hexyl Cinnamal",
+"aliases": [],
+"r": 1,
+"flags": [
+"ALL"
+],
+"fn": "Profumo",
+"note": "Allergene da dichiarare."
+},
+{
+"name": "Amyl Cinnamal",
+"aliases": [],
+"r": 1,
+"flags": [
+"ALL"
+],
+"fn": "Profumo",
+"note": "Allergene da dichiarare."
+},
+{
+"name": "Cinnamal",
+"aliases": [],
+"r": 1,
+"flags": [
+"ALL"
+],
+"fn": "Profumo",
+"note": "Allergene da dichiarare."
+},
+{
+"name": "Benzyl Salicylate",
+"aliases": [],
+"r": 1,
+"flags": [
+"ALL"
+],
+"fn": "Profumo",
+"note": "Allergene da dichiarare."
+},
+{
+"name": "Benzyl Benzoate",
+"aliases": [],
+"r": 1,
+"flags": [
+"ALL"
+],
+"fn": "Profumo",
+"note": "Allergene da dichiarare."
+},
+{
+"name": "Alpha-Isomethyl Ionone",
+"aliases": [],
+"r": 1,
+"flags": [
+"ALL"
+],
+"fn": "Profumo",
+"note": "Allergene da dichiarare."
+},
+{
+"name": "Farnesol",
+"aliases": [],
+"r": 1,
+"flags": [
+"ALL"
+],
+"fn": "Profumo",
+"note": "Allergene da dichiarare."
+},
+{
+"name": "Hydroxycitronellal",
+"aliases": [],
+"r": 1,
+"flags": [
+"ALL"
+],
+"fn": "Profumo",
+"note": "Allergene da dichiarare."
+},
+{
+"name": "Butylphenyl Methylpropional",
+"aliases": [
+"lilial"
+],
+"r": 0,
+"flags": [
+"BAN",
+"ALL"
+],
+"fn": "Profumo",
+"note": "Lilial: vietato nei cosmetici UE dal 2022."
+},
+{
+"name": "Tetramethyl Acetyloctahydronaphthalenes",
+"aliases": [
+"otne"
+],
+"r": 1,
+"flags": [
+"PROF"
+],
+"fn": "Profumo sintetico",
+"note": "Fragranza sintetica sotto revisione europea per il potenziale sensibilizzante."
+},
+{
+"name": "Hexamethylindanopyran",
+"aliases": [
+"galaxolide"
+],
+"r": 1,
+"flags": [
+"PROF"
+],
+"fn": "Muschio sintetico",
+"note": "Persistente nell'ambiente."
+},
+{
+"name": "Carvone",
+"aliases": [],
+"r": 1,
+"flags": [
+"PROF"
+],
+"fn": "Profumo",
+"note": "Componente della menta."
+},
+{
+"name": "Pinene",
+"aliases": [],
+"r": 1,
+"flags": [
+"PROF"
+],
+"fn": "Profumo",
+"note": "Componente degli oli essenziali."
+},
+{
+"name": "Linalyl Acetate",
+"aliases": [],
+"r": 1,
+"flags": [
+"PROF"
+],
+"fn": "Profumo",
+"note": "Componente degli oli essenziali."
+},
+{
+"name": "Terpineol",
+"aliases": [],
+"r": 1,
+"flags": [
+"PROF"
+],
+"fn": "Profumo",
+"note": ""
+},
+{
+"name": "Isoeugenyl Acetate",
+"aliases": [],
+"r": 1,
+"flags": [
+"PROF"
+],
+"fn": "Profumo",
+"note": ""
+},
+{
+"name": "Benzaldehyde",
+"aliases": [],
+"r": 1,
+"flags": [
+"PROF"
+],
+"fn": "Profumo",
+"note": ""
+},
+{
+"name": "Geranyl Acetate",
+"aliases": [],
+"r": 1,
+"flags": [
+"PROF"
+],
+"fn": "Profumo",
+"note": ""
+},
+{
+"name": "Heptanol",
+"aliases": [],
+"r": 2,
+"flags": [
+"PROF"
+],
+"fn": "Profumo",
+"note": ""
+},
+{
+"name": "Vanillin",
+"aliases": [],
+"r": 2,
+"flags": [
+"PROF"
+],
+"fn": "Profumo",
+"note": ""
+},
+{
+"name": "Hydrated Silica",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Abrasivo delicato",
+"note": "La base pulente di quasi tutti i dentifrici."
+},
+{
+"name": "Sorbitol",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Umettante, dolcificante",
+"note": "Evita che il dentifricio si secchi; non causa carie."
+},
+{
+"name": "Xylitol",
+"aliases": [],
+"r": 4,
+"flags": [
+"ATT"
+],
+"fn": "Dolcificante, anticarie",
+"note": "Dolcificante che non nutre i batteri della carie."
+},
+{
+"name": "Sodium Fluoride",
+"aliases": [],
+"r": 4,
+"flags": [
+"ATT"
+],
+"fn": "Anticarie",
+"note": "Il fluoro è l'ingrediente più efficace contro la carie."
+},
+{
+"name": "Sodium Monofluorophosphate",
+"aliases": [],
+"r": 4,
+"flags": [
+"ATT"
+],
+"fn": "Anticarie",
+"note": "Fonte di fluoro."
+},
+{
+"name": "Stannous Fluoride",
+"aliases": [],
+"r": 4,
+"flags": [
+"ATT"
+],
+"fn": "Anticarie, gengive",
+"note": "Fonte di fluoro, utile anche per le gengive."
+},
+{
+"name": "Hydroxyapatite",
+"aliases": [],
+"r": 4,
+"flags": [
+"ATT"
+],
+"fn": "Rimineralizzante",
+"note": ""
+},
+{
+"name": "Potassium Nitrate",
+"aliases": [],
+"r": 3,
+"flags": [
+"ATT"
+],
+"fn": "Desensibilizzante",
+"note": "Riduce la sensibilità dei denti."
+},
+{
+"name": "Zinc Citrate",
+"aliases": [],
+"r": 3,
+"flags": [
+"ATT"
+],
+"fn": "Antiplacca",
+"note": ""
+},
+{
+"name": "Sodium Bicarbonate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Abrasivo delicato",
+"note": "Bicarbonato."
+},
+{
+"name": "Calcium Carbonate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Abrasivo delicato",
+"note": ""
+},
+{
+"name": "Tetrasodium Pyrophosphate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Anti-tartaro",
+"note": ""
+},
+{
+"name": "Tetrapotassium Pyrophosphate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Anti-tartaro",
+"note": ""
+},
+{
+"name": "Trisodium Phosphate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Regolatore di pH",
+"note": ""
+},
+{
+"name": "Sodium Saccharin",
+"aliases": [
+"saccharin"
+],
+"r": 3,
+"flags": [],
+"fn": "Dolcificante",
+"note": ""
+},
+{
+"name": "Sucralose",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Dolcificante",
+"note": ""
+},
+{
+"name": "Cellulose Gum",
+"aliases": [
+"carboxymethylcellulose"
+],
+"r": 4,
+"flags": [],
+"fn": "Addensante",
+"note": ""
+},
+{
+"name": "Carrageenan",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Addensante",
+"note": "Dalle alghe."
+},
+{
+"name": "PEG-6",
+"aliases": [],
+"r": 2,
+"flags": [
+"PEG"
+],
+"fn": "Umettante, solvente",
+"note": "Etossilato."
+},
+{
+"name": "PEG-8",
+"aliases": [],
+"r": 2,
+"flags": [
+"PEG"
+],
+"fn": "Umettante, solvente",
+"note": "Etossilato."
+},
+{
+"name": "PEG-12",
+"aliases": [],
+"r": 2,
+"flags": [
+"PEG"
+],
+"fn": "Umettante, solvente",
+"note": "Etossilato."
+},
+{
+"name": "Chlorhexidine Digluconate",
+"aliases": [],
+"r": 2,
+"flags": [
+"ATT"
+],
+"fn": "Antibatterico",
+"note": "Utile per brevi periodi; a lungo può macchiare i denti."
+},
+{
+"name": "Triclosan",
+"aliases": [],
+"r": 1,
+"flags": [],
+"fn": "Antibatterico",
+"note": "Molto limitato dall'UE."
+},
+{
+"name": "Titanium Dioxide",
+"aliases": [
+"ci 77891"
+],
+"r": 2,
+"flags": [],
+"fn": "Colorante bianco",
+"note": "Vietato come additivo alimentare in UE; nei cosmetici è ammesso."
+},
+{
+"name": "Mica",
+"aliases": [
+"ci 77019"
+],
+"r": 3,
+"flags": [],
+"fn": "Colorante, perlescente",
+"note": ""
+},
+{
+"name": "CI 42090",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Colorante blu",
+"note": ""
+},
+{
+"name": "CI 74160",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Colorante blu",
+"note": ""
+},
+{
+"name": "CI 74260",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Colorante verde",
+"note": ""
+},
+{
+"name": "CI 73360",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Colorante rosso",
+"note": ""
+},
+{
+"name": "CI 19140",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Colorante giallo",
+"note": ""
+},
+{
+"name": "Eucalyptol",
+"aliases": [],
+"r": 2,
+"flags": [
+"PROF"
+],
+"fn": "Aroma",
+"note": ""
+},
+{
+"name": "Anethole",
+"aliases": [],
+"r": 2,
+"flags": [
+"PROF"
+],
+"fn": "Aroma",
+"note": ""
+},
+{
+"name": "Arachidic Acid",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": "Acido grasso."
+},
+{
+"name": "Palm Acid",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Detergente",
+"note": ""
+},
+{
+"name": "Glycolic Acid",
+"aliases": [],
+"r": 3,
+"flags": [
+"ATT"
+],
+"fn": "Esfoliante",
+"note": "Esfoliante efficace; aumenta la sensibilità al sole."
+},
+{
+"name": "Lactobionic Acid",
+"aliases": [],
+"r": 4,
+"flags": [
+"ATT"
+],
+"fn": "Esfoliante delicato",
+"note": ""
+},
+{
+"name": "Potassium Chloride",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Addensante",
+"note": ""
+},
+{
+"name": "Ammonium Chloride",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Addensante",
+"note": ""
+},
+{
+"name": "Ammonium Sulfate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Addensante",
+"note": ""
+},
+{
+"name": "Alanine",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Aminoacido",
+"note": ""
+},
+{
+"name": "Adenosine",
+"aliases": [],
+"r": 4,
+"flags": [
+"ATT"
+],
+"fn": "Lenitivo, antietà",
+"note": ""
+},
+{
+"name": "Tromethamine",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Regolatore di pH",
+"note": ""
+},
+{
+"name": "Ceresin",
+"aliases": [],
+"r": 2,
+"flags": [
+"MIN"
+],
+"fn": "Cera",
+"note": ""
+},
+{
+"name": "Magnesium Hydroxide",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Regolatore di pH",
+"note": ""
+},
+{
+"name": "Lanolin Alcohol",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": "Di origine animale."
+},
+{
+"name": "Methyl Salicylate",
+"aliases": [],
+"r": 2,
+"flags": [
+"IRR"
+],
+"fn": "Aroma",
+"note": ""
+},
+{
+"name": "Phospholipids",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Sucrose Cocoate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente, tensioattivo delicato",
+"note": ""
+},
+{
+"name": "Mel",
+"aliases": [
+"honey"
+],
+"r": 4,
+"flags": [],
+"fn": "Umettante",
+"note": "Miele."
+},
+{
+"name": "Pyridoxine HCl",
+"aliases": [
+"pyridoxine"
+],
+"r": 4,
+"flags": [],
+"fn": "Vitamina B6",
+"note": ""
+},
+{
+"name": "Beta-Sitosterol",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Lenitivo",
+"note": ""
+},
+{
+"name": "Fructooligosaccharides",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Prebiotico",
+"note": ""
+},
+{
+"name": "Trihydroxystearin",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Addensante",
+"note": ""
+},
+{
+"name": "Menthyl Lactate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Rinfrescante",
+"note": "Più delicato del mentolo."
+},
+{
+"name": "Capryloyl Salicylic Acid",
+"aliases": [],
+"r": 3,
+"flags": [
+"ATT"
+],
+"fn": "Esfoliante",
+"note": ""
+},
+{
+"name": "Undecane",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": "Di solito di origine vegetale."
+},
+{
+"name": "Tridecane",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Cocoglycerides",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Bis-Diglyceryl Polyacyladipate-2",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Biosaccharide Gum-1",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Idratante",
+"note": ""
+},
+{
+"name": "Pentasodium Pentetate",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Chelante",
+"note": "Poco biodegradabile."
+},
+{
+"name": "Calcium Glycerophosphate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Rimineralizzante",
+"note": ""
+},
+{
+"name": "Lauroyl Lysine",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Polvere, condizionante",
+"note": ""
+},
+{
+"name": "Tridecyl Trimellitate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Hexadimethrine Chloride",
+"aliases": [],
+"r": 2,
+"flags": [
+"POLY"
+],
+"fn": "Condizionante",
+"note": ""
+},
+{
+"name": "Thioglycerin",
+"aliases": [],
+"r": 2,
+"flags": [
+"IRR"
+],
+"fn": "Agente riducente",
+"note": ""
+},
+{
+"name": "Toluene-2,5-Diamine",
+"aliases": [],
+"r": 1,
+"flags": [
+"IRR"
+],
+"fn": "Colorante per capelli",
+"note": "Allergene delle tinture."
+},
+{
+"name": "Stearamide AMP",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Addensante",
+"note": ""
+},
+{
+"name": "2-Oleamido-1,3-Octadecanediol",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Rinforza la barriera",
+"note": ""
+},
+{
+"name": "Galactoarabinan",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Idratante",
+"note": ""
+},
+{
+"name": "Ethylhexylglycerin",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Conservante di supporto, emolliente",
+"note": "Ben tollerato; raramente può dare allergia."
+},
+{
+"name": "Stearic Acid",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente, addensante",
+"note": "Acido grasso."
+},
+{
+"name": "Palmitic Acid",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": "Acido grasso."
+},
+{
+"name": "Lauric Acid",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente, detergente",
+"note": "Acido grasso."
+},
+{
+"name": "Myristic Acid",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente, detergente",
+"note": "Acido grasso."
+},
+{
+"name": "Oleic Acid",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": "Acido grasso."
+},
+{
+"name": "Capric Acid",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": "Acido grasso."
+},
+{
+"name": "Caprylic Acid",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": "Acido grasso."
+},
+{
+"name": "Coconut Acid",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Detergente",
+"note": ""
+},
+{
+"name": "Palm Kernel Acid",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Detergente",
+"note": ""
+},
+{
+"name": "BHT",
+"aliases": [
+"butylated hydroxytoluene"
+],
+"r": 2,
+"flags": [],
+"fn": "Antiossidante sintetico",
+"note": "Protegge la formula; sotto osservazione ma ammesso."
+},
+{
+"name": "Triethanolamine",
+"aliases": [
+"tea"
+],
+"r": 2,
+"flags": [
+"IRR"
+],
+"fn": "Regolatore di pH",
+"note": "Può irritare; può formare nitrosammine."
+},
+{
+"name": "Ethanolamine",
+"aliases": [],
+"r": 2,
+"flags": [
+"IRR"
+],
+"fn": "Regolatore di pH",
+"note": ""
+},
+{
+"name": "Isobutane",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Propellente",
+"note": ""
+},
+{
+"name": "Butane",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Propellente",
+"note": ""
+},
+{
+"name": "Propane",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Propellente",
+"note": ""
+},
+{
+"name": "Isopentane",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Propellente, solvente",
+"note": ""
+},
+{
+"name": "C12-15 Alkyl Benzoate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Octyldodecanol",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Isopropyl Alcohol",
+"aliases": [],
+"r": 1,
+"flags": [
+"ALC"
+],
+"fn": "Solvente",
+"note": "Alcol seccante."
+},
+{
+"name": "Tetrasodium Glutamate Diacetate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Chelante",
+"note": "Alternativa biodegradabile all'EDTA."
+},
+{
+"name": "Trisodium Ethylenediamine Disuccinate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Chelante",
+"note": "Biodegradabile."
+},
+{
+"name": "Maltodextrin",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Legante, idratante",
+"note": ""
+},
+{
+"name": "Hexylene Glycol",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Solvente",
+"note": ""
+},
+{
+"name": "Sodium Sulfate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Addensante",
+"note": "Sale inorganico, non è un tensioattivo."
+},
+{
+"name": "Glyceryl Stearate Citrate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emulsionante",
+"note": ""
+},
+{
+"name": "Disteardimonium Hectorite",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Addensante",
+"note": ""
+},
+{
+"name": "Stearalkonium Hectorite",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Addensante",
+"note": ""
+},
+{
+"name": "Sodium Lactate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Umettante",
+"note": ""
+},
+{
+"name": "Triethyl Citrate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Deodorante, solvente",
+"note": ""
+},
+{
+"name": "Potassium Hydroxide",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Regolatore di pH",
+"note": "Neutralizzato nella formula finale."
+},
+{
+"name": "Talc",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Polvere assorbente",
+"note": "Ammesso se privo di amianto; da evitare in polvere da inalare."
+},
+{
+"name": "Magnesium Chloride",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Stabilizzante",
+"note": ""
+},
+{
+"name": "Magnesium Nitrate",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Stabilizzante",
+"note": "Di solito accompagna gli isotiazolinoni."
+},
+{
+"name": "Magnesium Sulfate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Addensante",
+"note": ""
+},
+{
+"name": "Ethylhexyl Methoxycinnamate",
+"aliases": [
+"octinoxate"
+],
+"r": 1,
+"flags": [],
+"fn": "Filtro UV",
+"note": "Filtro UV con dubbi sull'attività ormonale."
+},
+{
+"name": "Butyl Methoxydibenzoylmethane",
+"aliases": [
+"avobenzone"
+],
+"r": 3,
+"flags": [],
+"fn": "Filtro UV",
+"note": "Filtro UVA efficace, poco stabile alla luce da solo."
+},
+{
+"name": "Ethylhexyl Salicylate",
+"aliases": [
+"octisalate"
+],
+"r": 2,
+"flags": [],
+"fn": "Filtro UV",
+"note": ""
+},
+{
+"name": "Homosalate",
+"aliases": [],
+"r": 1,
+"flags": [],
+"fn": "Filtro UV",
+"note": "Concentrazione limitata dall'UE per dubbi ormonali."
+},
+{
+"name": "Octocrylene",
+"aliases": [],
+"r": 1,
+"flags": [],
+"fn": "Filtro UV",
+"note": "Sotto osservazione: col tempo può formare benzofenone."
+},
+{
+"name": "Benzophenone-3",
+"aliases": [
+"oxybenzone"
+],
+"r": 0,
+"flags": [],
+"fn": "Filtro UV",
+"note": "Fortemente limitato dall'UE."
+},
+{
+"name": "Benzophenone-4",
+"aliases": [],
+"r": 1,
+"flags": [],
+"fn": "Filtro UV",
+"note": ""
+},
+{
+"name": "Ethylhexyl Triazone",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Filtro UV",
+"note": ""
+},
+{
+"name": "Bis-Ethylhexyloxyphenol Methoxyphenyl Triazine",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Filtro UV",
+"note": "Filtro ad ampio spettro, molto stabile."
+},
+{
+"name": "Diethylamino Hydroxybenzoyl Hexyl Benzoate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Filtro UV",
+"note": ""
+},
+{
+"name": "Diethylhexyl Butamido Triazone",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Filtro UV",
+"note": ""
+},
+{
+"name": "Phenylbenzimidazole Sulfonic Acid",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Filtro UV",
+"note": ""
+},
+{
+"name": "Zinc Oxide",
+"aliases": [
+"ci 77947"
+],
+"r": 3,
+"flags": [],
+"fn": "Filtro UV minerale, lenitivo",
+"note": ""
+},
+{
+"name": "Hydrogenated Castor Oil",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente, addensante",
+"note": ""
+},
+{
+"name": "Chlorphenesin",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Conservante",
+"note": ""
+},
+{
+"name": "Aluminum Chlorohydrate",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Antitraspirante",
+"note": "Riduce il sudore; sicuro secondo l'SCCS ai livelli ammessi."
+},
+{
+"name": "Aluminum Sesquichlorohydrate",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Antitraspirante",
+"note": ""
+},
+{
+"name": "Aluminum Hydroxide",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Opacizzante",
+"note": ""
+},
+{
+"name": "Disodium Cocoamphodiacetate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Tensioattivo delicato",
+"note": ""
+},
+{
+"name": "Sorbic Acid",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Conservante",
+"note": ""
+},
+{
+"name": "Propylene Carbonate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Solvente",
+"note": ""
+},
+{
+"name": "Hydrogenated Starch Hydrolysate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Umettante",
+"note": ""
+},
+{
+"name": "Potassium Cetyl Phosphate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emulsionante",
+"note": ""
+},
+{
+"name": "Sodium Cetearyl Sulfate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emulsionante",
+"note": ""
+},
+{
+"name": "Sodium Palmate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Sapone",
+"note": ""
+},
+{
+"name": "Sodium Palm Kernelate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Sapone",
+"note": ""
+},
+{
+"name": "Sodium Cocoate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Sapone",
+"note": ""
+},
+{
+"name": "Sodium Olivate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Sapone",
+"note": ""
+},
+{
+"name": "Sodium Tallowate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Sapone",
+"note": "Di origine animale."
+},
+{
+"name": "Potassium Cocoate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Sapone",
+"note": ""
+},
+{
+"name": "Sodium Stearate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Sapone, addensante",
+"note": ""
+},
+{
+"name": "Pentaerythrityl Tetra-Di-T-Butyl Hydroxyhydrocinnamate",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Antiossidante sintetico",
+"note": ""
+},
+{
+"name": "Hydroxyacetophenone",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Antiossidante, conservante di supporto",
+"note": ""
+},
+{
+"name": "Kaolin",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Argilla assorbente",
+"note": ""
+},
+{
+"name": "Bentonite",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Argilla assorbente",
+"note": ""
+},
+{
+"name": "Illite",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Argilla",
+"note": ""
+},
+{
+"name": "Sodium Stearoyl Glutamate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emulsionante",
+"note": ""
+},
+{
+"name": "Disodium Stearoyl Glutamate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emulsionante",
+"note": ""
+},
+{
+"name": "Ascorbic Acid",
+"aliases": [
+"vitamin c"
+],
+"r": 4,
+"flags": [
+"ATT"
+],
+"fn": "Antiossidante",
+"note": "Vitamina C."
+},
+{
+"name": "Sodium Ascorbyl Phosphate",
+"aliases": [],
+"r": 4,
+"flags": [
+"ATT"
+],
+"fn": "Antiossidante",
+"note": "Forma stabile della vitamina C."
+},
+{
+"name": "Ascorbyl Glucoside",
+"aliases": [],
+"r": 4,
+"flags": [
+"ATT"
+],
+"fn": "Antiossidante",
+"note": "Forma stabile della vitamina C."
+},
+{
+"name": "Cera Alba",
+"aliases": [
+"beeswax",
+"cera alba (beeswax)"
+],
+"r": 4,
+"flags": [],
+"fn": "Cera, emolliente",
+"note": "Cera d'api."
+},
+{
+"name": "Copernicia Cerifera Cera",
+"aliases": [
+"carnauba wax"
+],
+"r": 4,
+"flags": [],
+"fn": "Cera",
+"note": "Cera di carnauba."
+},
+{
+"name": "Paraffin",
+"aliases": [],
+"r": 2,
+"flags": [
+"MIN"
+],
+"fn": "Cera",
+"note": "Derivato del petrolio."
+},
+{
+"name": "Cera Microcristallina",
+"aliases": [
+"microcrystalline wax"
+],
+"r": 2,
+"flags": [
+"MIN"
+],
+"fn": "Cera",
+"note": "Derivato del petrolio."
+},
+{
+"name": "Ozokerite",
+"aliases": [],
+"r": 2,
+"flags": [
+"MIN"
+],
+"fn": "Cera",
+"note": ""
+},
+{
+"name": "Synthetic Wax",
+"aliases": [],
+"r": 2,
+"flags": [
+"MIN"
+],
+"fn": "Cera",
+"note": ""
+},
+{
+"name": "C13-14 Isoparaffin",
+"aliases": [],
+"r": 2,
+"flags": [
+"MIN"
+],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Polyisobutene",
+"aliases": [],
+"r": 2,
+"flags": [
+"MIN"
+],
+"fn": "Filmante",
+"note": ""
+},
+{
+"name": "Polybutene",
+"aliases": [],
+"r": 2,
+"flags": [
+"MIN"
+],
+"fn": "Filmante",
+"note": ""
+},
+{
+"name": "Hydrogenated Polydecene",
+"aliases": [],
+"r": 2,
+"flags": [
+"MIN"
+],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "C15-19 Alkane",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": "Spesso di origine vegetale."
+},
+{
+"name": "Sodium Gluconate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Chelante",
+"note": ""
+},
+{
+"name": "Calcium Gluconate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Condizionante",
+"note": ""
+},
+{
+"name": "Tetrasodium Etidronate",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Chelante",
+"note": ""
+},
+{
+"name": "Etidronic Acid",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Chelante",
+"note": ""
+},
+{
+"name": "Ethylhexyl Palmitate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Ethylhexyl Stearate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Trisodium EDTA",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Chelante",
+"note": "Poco biodegradabile."
+},
+{
+"name": "EDTA",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Chelante",
+"note": "Poco biodegradabile."
+},
+{
+"name": "Alumina",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Opacizzante",
+"note": ""
+},
+{
+"name": "Cetyl Palmitate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Cetyl Esters",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Caramel",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Colorante",
+"note": ""
+},
+{
+"name": "Sodium C14-16 Olefin Sulfonate",
+"aliases": [],
+"r": 2,
+"flags": [
+"IRR"
+],
+"fn": "Tensioattivo",
+"note": "Detergente deciso."
+},
+{
+"name": "Sodium Lauryl Sulfoacetate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Tensioattivo",
+"note": ""
+},
+{
+"name": "Stearamidopropyl Dimethylamine",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Condizionante",
+"note": ""
+},
+{
+"name": "Synthetic Fluorphlogopite",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Perlescente",
+"note": ""
+},
+{
+"name": "Cocamide MIPA",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Addensante, schiumogeno",
+"note": ""
+},
+{
+"name": "Glycine",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Aminoacido",
+"note": ""
+},
+{
+"name": "Serine",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Aminoacido",
+"note": ""
+},
+{
+"name": "Histidine",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Aminoacido",
+"note": ""
+},
+{
+"name": "Threonine",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Aminoacido",
+"note": ""
+},
+{
+"name": "Proline",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Aminoacido",
+"note": ""
+},
+{
+"name": "Glutamic Acid",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Aminoacido",
+"note": ""
+},
+{
+"name": "Lysine",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Aminoacido",
+"note": ""
+},
+{
+"name": "Sodium Methyl Cocoyl Taurate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Tensioattivo delicato",
+"note": ""
+},
+{
+"name": "Sodium Polyacrylate",
+"aliases": [],
+"r": 1,
+"flags": [
+"POLY"
+],
+"fn": "Addensante",
+"note": "Polimero sintetico poco biodegradabile."
+},
+{
+"name": "Sodium Carbomer",
+"aliases": [],
+"r": 2,
+"flags": [
+"POLY"
+],
+"fn": "Addensante",
+"note": ""
+},
+{
+"name": "Coco-Caprylate/Caprate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Coco-Caprylate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Tin Oxide",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Perlescente",
+"note": ""
+},
+{
+"name": "Microcrystalline Cellulose",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Addensante",
+"note": ""
+},
+{
+"name": "Cellulose",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Addensante",
+"note": ""
+},
+{
+"name": "Phosphoric Acid",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Regolatore di pH",
+"note": ""
+},
+{
+"name": "Gluconolactone",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Esfoliante delicato",
+"note": ""
+},
+{
+"name": "Myristyl Alcohol",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": "Alcol grasso."
+},
+{
+"name": "Lauryl Alcohol",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": "Alcol grasso."
+},
+{
+"name": "Behenyl Alcohol",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": "Alcol grasso."
+},
+{
+"name": "Arachidyl Alcohol",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": "Alcol grasso."
+},
+{
+"name": "Glucose",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Umettante",
+"note": ""
+},
+{
+"name": "Sucrose",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Umettante",
+"note": ""
+},
+{
+"name": "Fructose",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Umettante",
+"note": ""
+},
+{
+"name": "Lactose",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Umettante",
+"note": ""
+},
+{
+"name": "Trehalose",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Umettante",
+"note": ""
+},
+{
+"name": "Mannitol",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Umettante",
+"note": ""
+},
+{
+"name": "Rhamnose",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Umettante",
+"note": ""
+},
+{
+"name": "Cetearyl Glucoside",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emulsionante",
+"note": ""
+},
+{
+"name": "Arachidyl Glucoside",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emulsionante",
+"note": ""
+},
+{
+"name": "Dibutyl Adipate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Solvente",
+"note": ""
+},
+{
+"name": "Methylpropanediol",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Solvente",
+"note": ""
+},
+{
+"name": "Myristyl Myristate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Charcoal Powder",
+"aliases": [
+"charcoal"
+],
+"r": 3,
+"flags": [],
+"fn": "Assorbente",
+"note": ""
+},
+{
+"name": "Polyethylene",
+"aliases": [],
+"r": 1,
+"flags": [
+"POLY"
+],
+"fn": "Abrasivo, filmante",
+"note": "Microplastica."
+},
+{
+"name": "Nylon-12",
+"aliases": [],
+"r": 1,
+"flags": [
+"POLY"
+],
+"fn": "Polvere",
+"note": "Microplastica."
+},
+{
+"name": "Tapioca Starch",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Assorbente",
+"note": ""
+},
+{
+"name": "Ceramide NP",
+"aliases": [],
+"r": 4,
+"flags": [
+"ATT"
+],
+"fn": "Rinforza la barriera",
+"note": ""
+},
+{
+"name": "Ceramide AP",
+"aliases": [],
+"r": 4,
+"flags": [
+"ATT"
+],
+"fn": "Rinforza la barriera",
+"note": ""
+},
+{
+"name": "Ceramide EOP",
+"aliases": [],
+"r": 4,
+"flags": [
+"ATT"
+],
+"fn": "Rinforza la barriera",
+"note": ""
+},
+{
+"name": "Cholesterol",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Rinforza la barriera",
+"note": ""
+},
+{
+"name": "Phytosphingosine",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Rinforza la barriera",
+"note": ""
+},
+{
+"name": "Cinnamyl Alcohol",
+"aliases": [],
+"r": 1,
+"flags": [
+"ALL"
+],
+"fn": "Profumo",
+"note": "Allergene da dichiarare."
+},
+{
+"name": "Anise Alcohol",
+"aliases": [],
+"r": 1,
+"flags": [
+"ALL"
+],
+"fn": "Profumo",
+"note": "Allergene da dichiarare."
+},
+{
+"name": "Benzyl Cinnamate",
+"aliases": [],
+"r": 1,
+"flags": [
+"ALL"
+],
+"fn": "Profumo",
+"note": "Allergene da dichiarare."
+},
+{
+"name": "Retinyl Palmitate",
+"aliases": [],
+"r": 2,
+"flags": [
+"ATT"
+],
+"fn": "Vitamina A",
+"note": "Limitato nei prodotti per il viso dall'UE."
+},
+{
+"name": "Retinol",
+"aliases": [],
+"r": 2,
+"flags": [
+"ATT"
+],
+"fn": "Vitamina A",
+"note": "Efficace ma irritante; concentrazioni limitate dall'UE."
+},
+{
+"name": "Hydrogen Peroxide",
+"aliases": [],
+"r": 2,
+"flags": [
+"IRR"
+],
+"fn": "Ossidante",
+"note": ""
+},
+{
+"name": "Sorbitan Isostearate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emulsionante",
+"note": ""
+},
+{
+"name": "Sorbitan Stearate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emulsionante",
+"note": ""
+},
+{
+"name": "Sorbitan Caprylate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emulsionante",
+"note": ""
+},
+{
+"name": "Sorbitan Olivate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emulsionante",
+"note": ""
+},
+{
+"name": "Hydroxypropyl Methylcellulose",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Addensante",
+"note": ""
+},
+{
+"name": "Sodium Dehydroacetate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Conservante",
+"note": ""
+},
+{
+"name": "Theobroma Cacao Seed Butter",
+"aliases": [
+"cocoa butter"
+],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": "Burro di cacao."
+},
+{
+"name": "Magnesium Aluminum Silicate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Addensante",
+"note": ""
+},
+{
+"name": "Hydrogenated Vegetable Oil",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Sodium Lauroyl Sarcosinate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Tensioattivo delicato",
+"note": ""
+},
+{
+"name": "Magnesium Stearate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Addensante",
+"note": ""
+},
+{
+"name": "Lanolin",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": "Di origine animale; raramente allergizzante."
+},
+{
+"name": "Sodium Acetate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Regolatore di pH",
+"note": ""
+},
+{
+"name": "Sodium Sulfite",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Antiossidante",
+"note": ""
+},
+{
+"name": "Sodium Metabisulfite",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Antiossidante",
+"note": "Può dare reazioni nelle persone sensibili ai solfiti."
+},
+{
+"name": "Pantolactone",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Umettante",
+"note": ""
+},
+{
+"name": "Zinc PCA",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Seboregolatore",
+"note": ""
+},
+{
+"name": "Cetylpyridinium Chloride",
+"aliases": [],
+"r": 2,
+"flags": [
+"ATT"
+],
+"fn": "Antibatterico",
+"note": "Tipico dei collutori."
+},
+{
+"name": "Benzalkonium Chloride",
+"aliases": [],
+"r": 1,
+"flags": [
+"IRR"
+],
+"fn": "Conservante, antibatterico",
+"note": ""
+},
+{
+"name": "Zinc Gluconate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Seboregolatore",
+"note": ""
+},
+{
+"name": "Zinc Chloride",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Astringente",
+"note": ""
+},
+{
+"name": "Zinc Sulfate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Astringente",
+"note": ""
+},
+{
+"name": "Zinc Carbonate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Assorbente",
+"note": ""
+},
+{
+"name": "Zinc Stearate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Addensante",
+"note": ""
+},
+{
+"name": "Zinc Neodecanoate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Deodorante",
+"note": ""
+},
+{
+"name": "Aluminum Starch Octenylsuccinate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Assorbente",
+"note": ""
+},
+{
+"name": "Hydrogenated Coco-Glycerides",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Caprylhydroxamic Acid",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Conservante di supporto",
+"note": ""
+},
+{
+"name": "Biotin",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Vitamina",
+"note": ""
+},
+{
+"name": "Silica Dimethyl Silylate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Addensante",
+"note": ""
+},
+{
+"name": "Silica Silylate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Opacizzante",
+"note": ""
+},
+{
+"name": "Hydroxyisohexyl 3-Cyclohexene Carboxaldehyde",
+"aliases": [
+"lyral"
+],
+"r": 0,
+"flags": [
+"BAN"
+],
+"fn": "Profumo",
+"note": "Lyral: vietato nei cosmetici UE dal 2021."
+},
+{
+"name": "Jojoba Esters",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Sodium Isethionate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Tensioattivo delicato",
+"note": ""
+},
+{
+"name": "Sodium Lauroyl Isethionate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Tensioattivo delicato",
+"note": ""
+},
+{
+"name": "Sodium Lauroyl Methyl Isethionate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Tensioattivo delicato",
+"note": ""
+},
+{
+"name": "Sodium Lauroyl Glutamate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Tensioattivo delicato",
+"note": ""
+},
+{
+"name": "Sodium Lauroyl Glycinate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Tensioattivo delicato",
+"note": ""
+},
+{
+"name": "Sodium Lauryl Glucose Carboxylate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Tensioattivo delicato",
+"note": ""
+},
+{
+"name": "Cyclohexasiloxane",
+"aliases": [
+"d6"
+],
+"r": 0,
+"flags": [
+"SIL"
+],
+"fn": "Silicone volatile",
+"note": "Limitato dall'UE per persistenza ambientale."
+},
+{
+"name": "Cyclotetrasiloxane",
+"aliases": [
+"d4"
+],
+"r": 0,
+"flags": [
+"SIL",
+"BAN"
+],
+"fn": "Silicone volatile",
+"note": "Vietato nei cosmetici UE."
+},
+{
+"name": "Sodium Lauroyl Lactylate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emulsionante",
+"note": ""
+},
+{
+"name": "Formic Acid",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Regolatore di pH",
+"note": ""
+},
+{
+"name": "Cocamidopropyl Hydroxysultaine",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Tensioattivo delicato",
+"note": ""
+},
+{
+"name": "Lauryl Betaine",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Tensioattivo delicato",
+"note": ""
+},
+{
+"name": "Ammonium Hydroxide",
+"aliases": [],
+"r": 2,
+"flags": [
+"IRR"
+],
+"fn": "Regolatore di pH",
+"note": "Tipico delle tinture."
+},
+{
+"name": "Resorcinol",
+"aliases": [],
+"r": 1,
+"flags": [
+"IRR"
+],
+"fn": "Colorante per capelli",
+"note": "Allergene delle tinture."
+},
+{
+"name": "m-Aminophenol",
+"aliases": [],
+"r": 1,
+"flags": [
+"IRR"
+],
+"fn": "Colorante per capelli",
+"note": "Allergene delle tinture."
+},
+{
+"name": "p-Aminophenol",
+"aliases": [],
+"r": 1,
+"flags": [
+"IRR"
+],
+"fn": "Colorante per capelli",
+"note": ""
+},
+{
+"name": "p-Phenylenediamine",
+"aliases": [
+"ppd"
+],
+"r": 0,
+"flags": [
+"IRR"
+],
+"fn": "Colorante per capelli",
+"note": "Forte allergene delle tinture."
+},
+{
+"name": "Toluene-2,5-Diamine Sulfate",
+"aliases": [],
+"r": 1,
+"flags": [
+"IRR"
+],
+"fn": "Colorante per capelli",
+"note": "Allergene delle tinture."
+},
+{
+"name": "2-Methylresorcinol",
+"aliases": [],
+"r": 1,
+"flags": [
+"IRR"
+],
+"fn": "Colorante per capelli",
+"note": ""
+},
+{
+"name": "Sodium Phosphate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Regolatore di pH",
+"note": ""
+},
+{
+"name": "Potassium Phosphate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Regolatore di pH",
+"note": ""
+},
+{
+"name": "Disodium Pyrophosphate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Anti-tartaro",
+"note": ""
+},
+{
+"name": "Pentasodium Triphosphate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Anti-tartaro",
+"note": ""
+},
+{
+"name": "Capryloyl Glycine",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Seboregolatore",
+"note": ""
+},
+{
+"name": "Calcium Aluminum Borosilicate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Perlescente",
+"note": ""
+},
+{
+"name": "Calcium Sodium Borosilicate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Perlescente",
+"note": ""
+},
+{
+"name": "Phytic Acid",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Chelante",
+"note": ""
+},
+{
+"name": "Sodium Polynaphthalenesulfonate",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Disperdente",
+"note": ""
+},
+{
+"name": "Iodopropynyl Butylcarbamate",
+"aliases": [],
+"r": 1,
+"flags": [
+"IRR"
+],
+"fn": "Conservante",
+"note": "Limitato dall'UE."
+},
+{
+"name": "Fumaric Acid",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Regolatore di pH",
+"note": ""
+},
+{
+"name": "Tartaric Acid",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Regolatore di pH",
+"note": ""
+},
+{
+"name": "Hydrochloric Acid",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Regolatore di pH",
+"note": ""
+},
+{
+"name": "Ethyl Acetate",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Solvente",
+"note": ""
+},
+{
+"name": "Butyl Acetate",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Solvente",
+"note": ""
+},
+{
+"name": "Nitrocellulose",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Filmante",
+"note": "Tipico degli smalti."
+},
+{
+"name": "Hydrogenated Lecithin",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emulsionante",
+"note": ""
+},
+{
+"name": "Perlite",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Abrasivo",
+"note": ""
+},
+{
+"name": "Hydroxypropyl Starch Phosphate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Addensante",
+"note": ""
+},
+{
+"name": "Distarch Phosphate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Addensante",
+"note": ""
+},
+{
+"name": "Behentrimonium Methosulfate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Condizionante",
+"note": ""
+},
+{
+"name": "Distearyldimonium Chloride",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Condizionante",
+"note": ""
+},
+{
+"name": "Saccharide Isomerate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Idratante",
+"note": ""
+},
+{
+"name": "Polyacrylamide",
+"aliases": [],
+"r": 1,
+"flags": [
+"POLY"
+],
+"fn": "Addensante",
+"note": ""
+},
+{
+"name": "Magnesium Carbonate Hydroxide",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Assorbente",
+"note": ""
+},
+{
+"name": "Calcium Hydroxide",
+"aliases": [],
+"r": 2,
+"flags": [
+"IRR"
+],
+"fn": "Regolatore di pH",
+"note": ""
+},
+{
+"name": "Polyhydroxystearic Acid",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Disperdente",
+"note": ""
+},
+{
+"name": "Decylene Glycol",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Conservante di supporto",
+"note": ""
+},
+{
+"name": "Triethoxycaprylylsilane",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Disperdente",
+"note": ""
+},
+{
+"name": "Cetearyl Olivate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emulsionante",
+"note": ""
+},
+{
+"name": "Cetearyl Ethylhexanoate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Cetearyl Isononanoate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Isononyl Isononanoate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Sine Adipe Lac",
+"aliases": [
+"skim milk"
+],
+"r": 3,
+"flags": [],
+"fn": "Condizionante",
+"note": ""
+},
+{
+"name": "Sodium Methylparaben",
+"aliases": [],
+"r": 2,
+"flags": [],
+"fn": "Conservante",
+"note": ""
+},
+{
+"name": "Ubiquinone",
+"aliases": [
+"coenzyme q10"
+],
+"r": 4,
+"flags": [
+"ATT"
+],
+"fn": "Antiossidante",
+"note": ""
+},
+{
+"name": "Thymol",
+"aliases": [],
+"r": 2,
+"flags": [
+"PROF"
+],
+"fn": "Aroma, antibatterico",
+"note": ""
+},
+{
+"name": "Phenethyl Alcohol",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Conservante di supporto, profumo",
+"note": ""
+},
+{
+"name": "Glyceryl Glucoside",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Idratante",
+"note": ""
+},
+{
+"name": "Dipotassium Glycyrrhizate",
+"aliases": [],
+"r": 4,
+"flags": [
+"ATT"
+],
+"fn": "Lenitivo",
+"note": "Dalla liquirizia."
+},
+{
+"name": "Sodium Carbonate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Regolatore di pH",
+"note": ""
+},
+{
+"name": "Hydroxyethyl Urea",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Idratante",
+"note": ""
+},
+{
+"name": "Panthenyl Ethyl Ether",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Idratante",
+"note": ""
+},
+{
+"name": "Anhydroxylitol",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Idratante",
+"note": ""
+},
+{
+"name": "Xylitylglucoside",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Idratante",
+"note": ""
+},
+{
+"name": "Quaternium-80",
+"aliases": [],
+"r": 1,
+"flags": [
+"SIL"
+],
+"fn": "Condizionante siliconico",
+"note": ""
+},
+{
+"name": "Tribehenin",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Glyceryl Behenate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Glyceryl Laurate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Diisopropyl Sebacate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Propylheptyl Caprylate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "C10-18 Triglycerides",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Sucrose Stearate",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emulsionante",
+"note": ""
+},
+{
+"name": "Potassium Alum",
+"aliases": [
+"alum"
+],
+"r": 3,
+"flags": [],
+"fn": "Deodorante",
+"note": "Allume di rocca."
+},
+{
+"name": "Olus Oil",
+"aliases": [
+"vegetable oil"
+],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": "Olio vegetale."
+},
+{
+"name": "Canola Oil",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Iron Oxides",
+"aliases": [
+"ci 77491",
+"ci 77492",
+"ci 77499"
+],
+"r": 3,
+"flags": [],
+"fn": "Colorante minerale",
+"note": ""
+},
+{
+"name": "Carmine",
+"aliases": [
+"ci 75470"
+],
+"r": 3,
+"flags": [],
+"fn": "Colorante",
+"note": "Di origine animale."
+},
+{
+"name": "Polyglyceryl-3 Diisostearate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emulsionante",
+"note": ""
+},
+{
+"name": "Hydrogenated Palm Glycerides",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Hydrogenated Rapeseed Oil",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Hydrogenated Soybean Oil",
+"aliases": [],
+"r": 4,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Glycol Stearate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Opacizzante",
+"note": ""
+},
+{
+"name": "Stevia Rebaudiana Extract",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Dolcificante",
+"note": ""
+},
+{
+"name": "Dimethicone Crosspolymer",
+"aliases": [],
+"r": 1,
+"flags": [
+"SIL"
+],
+"fn": "Silicone",
+"note": ""
+},
+{
+"name": "Hydrolyzed Hyaluronic Acid",
+"aliases": [],
+"r": 4,
+"flags": [
+"ATT"
+],
+"fn": "Idratante",
+"note": ""
+},
+{
+"name": "Isopropyl Lanolate",
+"aliases": [],
+"r": 3,
+"flags": [],
+"fn": "Emolliente",
+"note": ""
+},
+{
+"name": "Quaternium-15",
+"aliases": [],
+"r": 0,
+"flags": [
+"FORM"
+],
+"fn": "Conservante",
+"note": "Rilascia formaldeide."
+},
+{
+"name": "Bronopol",
+"aliases": [
+"2-bromo-2-nitropropane-1,3-diol"
+],
+"r": 0,
+"flags": [
+"FORM"
+],
+"fn": "Conservante",
+"note": "Rilascia formaldeide."
+},
+{
+"name": "Formaldehyde",
+"aliases": [],
+"r": 0,
+"flags": [
+"FORM",
+"BAN"
+],
+"fn": "Conservante",
+"note": "Vietato come ingrediente nei cosmetici UE."
+}
+]
