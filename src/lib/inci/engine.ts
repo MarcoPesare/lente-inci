@@ -215,7 +215,9 @@ export function analyze(text: string, mode: Mode): Analysis {
 export function summarize(inci: string | null | undefined, mode: Mode) {
   if (!inci || !inci.trim()) return { score: null, flags: [] as Flag[], coverage: null };
   const a = analyze(inci, mode);
-  return { score: a.score, flags: Object.keys(a.counts) as Flag[], coverage: Math.round(a.coverage * 100) };
+  // Sotto il 50% di ingredienti riconosciuti il voto non è affidabile: non entra in classifica.
+  const coverage = Math.round(a.coverage * 100);
+  return { score: coverage >= 50 ? a.score : null, flags: Object.keys(a.counts) as Flag[], coverage };
 }
 
 export interface Profile { favorites: string[]; history: string[]; avoidFlags: Flag[]; avoidIngr: string[] }

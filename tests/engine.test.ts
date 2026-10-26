@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { analyze, lookup, parse } from "../src/lib/inci/engine";
+import { analyze, lookup, parse, summarize } from "../src/lib/inci/engine";
 
 test("riconosce gli ingredienti anche con errori di battitura", () => {
   assert.equal(lookup("Linaloon")?.e.name, "Linalool");
@@ -28,4 +28,9 @@ test("i conservanti che rilasciano formaldeide abbassano il voto", () => {
 test("le famiglie valutano gli ingredienti non presenti nel dizionario", () => {
   const m = lookup("Bis-PEG-18 Methyl Ether Dimethyl Silane");
   assert.ok(m?.e.family);
+});
+
+test("senza abbastanza ingredienti riconosciuti non c'è voto in classifica", () => {
+  assert.equal(summarize("eau, huile de nigelle, savon d'alep, baies de laurier", "rinse").score, null);
+  assert.ok(summarize("Aqua, Glycerin, Coco-Glucoside", "rinse").score !== null);
 });

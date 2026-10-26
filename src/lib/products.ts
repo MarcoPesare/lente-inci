@@ -78,7 +78,7 @@ export async function search(o: SearchOpts): Promise<{ items: Product[]; total: 
   if (o.onlyWithInci) conds.push(sql`p.inci IS NOT NULL`);
   if (o.avoidFlags?.length) conds.push(sql`NOT (p.flags && ${o.avoidFlags}::text[])`);
   const where = conds.reduce((a, b) => sql`${a} AND ${b}`);
-  const order = o.sort === "name" ? sql`p.name ASC` : sql`p.score DESC NULLS LAST, p.is_italy DESC, p.name ASC`;
+  const order = o.sort === "name" ? sql`p.name ASC` : sql`(p.coverage >= 70) DESC NULLS LAST, p.score DESC NULLS LAST, p.is_italy DESC, p.name ASC`;
   const [items, count] = await Promise.all([
     sql`SELECT ${COLS} FROM products p LEFT JOIN photos ph ON ph.product_id = p.id WHERE ${where} ORDER BY ${order} LIMIT ${limit} OFFSET ${offset}`,
     sql`SELECT count(*)::int AS n FROM products p WHERE ${where}`,
