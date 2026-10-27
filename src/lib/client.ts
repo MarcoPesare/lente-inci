@@ -22,5 +22,6 @@ export async function shrinkImage(file: File, max = 1600, quality = 0.85): Promi
   } catch { return file; }
 }
 
-export const fmtScore = (s: number | null | undefined) => (s === null || s === undefined ? "–" : s.toFixed(1).replace(".", ","));
+/** Il voto è salvato su 20 (motore e database), ma si mostra su 100: più immediato da leggere. */
+export const fmtScore = (s: number | null | undefined) => (s === null || s === undefined ? "–" : String(Math.round(s * 5)));
 export const TONES = ["--r0", "--r1", "--r2", "--r3", "--r4"];

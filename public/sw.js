@@ -1,5 +1,5 @@
 /* Service worker di Lente INCI: l'app si apre anche con connessione debole. */
-const CACHE = "lente-inci-v1";
+const CACHE = "lente-inci-v2";
 const SHELL = ["/", "/scansiona", "/analizza", "/ingredienti", "/manifest.webmanifest", "/icons/icon-192.png"];
 
 self.addEventListener("install", (e) => {
@@ -15,7 +15,7 @@ self.addEventListener("fetch", (e) => {
   if (url.origin !== location.origin) return;
   // API: sempre dalla rete, foto in cache dopo il primo caricamento
   if (url.pathname.startsWith("/api/")) {
-    if (url.pathname.startsWith("/api/photos/")) {
+    if (url.pathname.startsWith("/api/photos/") || url.pathname.startsWith("/api/img/")) {
       e.respondWith(caches.open(CACHE).then(async (c) => (await c.match(req)) || fetch(req).then((r) => { if (r.ok) c.put(req, r.clone()); return r; })));
     }
     return;

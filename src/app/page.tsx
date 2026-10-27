@@ -3,7 +3,8 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { CATEGORIES } from "@/lib/categorize";
 import { api, type Product } from "@/lib/client";
-import { CardList } from "@/components/ProductCard";
+import { CardList, CardSkeleton } from "@/components/ProductCard";
+import { Icon } from "@/components/Icon";
 import { hasProfile, useProfile } from "@/components/ProfileProvider";
 import { analyze, conflicts } from "@/lib/inci/engine";
 
@@ -51,32 +52,46 @@ export default function SearchPage() {
 
   return (
     <div className="view">
-      <div className="panel">
-        <div className="field"><label className="label" htmlFor="q">Cerca un prodotto</label>
-          <input type="search" id="q" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Nome, marca o codice a barre" autoComplete="off" /></div>
-        <div className="filters" role="group" aria-label="Categoria">
-          <button type="button" className="fchip" aria-pressed={!cat} onClick={() => setCat("")}>Tutte</button>
-          {CATEGORIES.map((c) => <button key={c} type="button" className="fchip" aria-pressed={cat === c} onClick={() => setCat(c)}>{c}</button>)}
-        </div>
-        <div className="row" style={{ justifyContent: "space-between" }}>
-          <div className="seg" style={{ minWidth: 220 }} role="group" aria-label="Ordina">
-            <button type="button" aria-pressed={sort === "score"} onClick={() => setSort("score")}>Voto più alto</button>
-            <button type="button" aria-pressed={sort === "name"} onClick={() => setSort("name")}>Nome A-Z</button>
-          </div>
+      <div className="searchbar">
+        <label className="search">
+          <Icon name="search" size={20} />
+          <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Cerca prodotto, marca o codice" autoComplete="off" aria-label="Cerca un prodotto" enterKeyHint="search" />
+          {q && <button type="button" className="clear" onClick={() => setQ("")} aria-label="Cancella"><Icon name="close" size={16} /></button>}
+        </label>
+        <Link href="/scansiona" className="scanbtn" aria-label="Scansiona il codice a barre"><Icon name="scan" size={22} /></Link>
+      </div>
+
+      <div className="hscroll" role="group" aria-label="Categoria">
+        <button type="button" className="fchip" aria-pressed={!cat} onClick={() => setCat("")}>Tutte</button>
+        {CATEGORIES.map((c) => <button key={c} type="button" className="fchip" aria-pressed={cat === c} onClick={() => setCat(cat === c ? "" : c)}>{c}</button>)}
+      </div>
+
+      <div className="toolbar">
+        <span className="count">{total === null ? " " : `${total.toLocaleString("it-IT")} prodott${total === 1 ? "o" : "i"}`}</span>
+        <div className="row" style={{ gap: 6 }}>
           {hasProfile(profile)
-            ? <label className="row" style={{ gap: 6, fontSize: 14 }}><input type="checkbox" checked={onlyOk} onChange={(e) => setOnlyOk(e.target.checked)} /> Solo adatti al mio profilo</label>
-            : <Link href="/profilo">Imposta gli ingredienti da evitare</Link>}
+            ? <button type="button" className="fchip sm" aria-pressed={onlyOk} onClick={() => setOnlyOk(!onlyOk)}>{onlyOk && <Icon name="check" size={14} />}Adatti a me</button>
+            : <Link className="fchip sm" href="/profilo">Imposta cosa evitare</Link>}
+          <label className="selectwrap">
+            <span className="sr">Ordina</span>
+            <select value={sort} onChange={(e) => setSort(e.target.value as "score" | "name")}>
+              <option value="score">Voto più alto</option>
+              <option value="name">Nome A-Z</option>
+            </select>
+          </label>
         </div>
       </div>
-      <div className="row" style={{ justifyContent: "space-between" }}>
-        <span className="label">{loading ? "Ricerca…" : total === null ? "" : `${total.toLocaleString("it-IT")} risultat${total === 1 ? "o" : "i"}`}</span>
-        <Link className="btn ghost" href="/nuovo">Aggiungi un prodotto</Link>
-      </div>
-      {error ? <p className="notice warn">{error}</p> : <CardList items={items} empty={loading ? "" : "Nessun prodotto trovato. Prova con meno parole, oppure aggiungilo tu."} />}
+
+      {error ? <p className="notice warn">{error}</p>
+        : loading && !items.length ? <CardSkeleton />
+        : <CardList items={items} empty={loading ? "" : "Nessun prodotto trovato. Prova con meno parole, oppure aggiungilo tu."} />}
       {total !== null && items.length < total && !onlyOk && (
-        <div className="row" style={{ justifyContent: "center" }}><button className="btn ghost" type="button" onClick={more} disabled={loading}>Mostra altri</button></div>
+        <div className="row" style={{ justifyContent: "center" }}><button className="btn ghost" type="button" onClick={more} disabled={loading}>{loading ? "Carico…" : "Mostra altri"}</button></div>
       )}
-      <p className="hint">Catalogo da <a href="https://world.openbeautyfacts.org" target="_blank" rel="noopener noreferrer">Open Beauty Facts</a>, dati aperti con licenza ODbL inseriti da volontari.</p>
+      <div className="row" style={{ justifyContent: "space-between" }}>
+        <p className="hint">Catalogo da <a href="https://world.openbeautyfacts.org" target="_blank" rel="noopener noreferrer">Open Beauty Facts</a>, dati aperti ODbL. <Link href="/privacy">Privacy</Link></p>
+        <Link className="btn ghost sm" href="/nuovo"><Icon name="plus" size={16} />Aggiungi un prodotto</Link>
+      </div>
     </div>
   );
 }

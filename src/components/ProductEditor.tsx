@@ -4,6 +4,7 @@ import { useState } from "react";
 import { CATEGORIES } from "@/lib/categorize";
 import { api, shrinkImage, type Product } from "@/lib/client";
 import { useToast } from "./Toast";
+import { AiNotice, AI_DONE } from "@/components/AiNotice";
 
 interface Props { product?: Product | null; initial?: Partial<Product> }
 
@@ -26,12 +27,12 @@ export function ProductEditor({ product, initial }: Props) {
   const set = (k: keyof typeof f, v: string) => setF((x) => ({ ...x, [k]: v }));
 
   async function readPhoto(file: File) {
-    setOcr("Lettura dell'etichetta in corso…");
+    setOcr("Trascrizione dell'etichetta con l'IA in corso…");
     try {
       const fd = new FormData(); fd.append("photo", await shrinkImage(file), "label.jpg");
       const r = await api<{ inci: string; name: string; brand: string }>("/api/ocr", { method: "POST", body: fd });
       setF((x) => ({ ...x, inci: r.inci, name: x.name || r.name, brand: x.brand || r.brand }));
-      setOcr("Fatto: controlla il testo prima di salvare.");
+      setOcr(AI_DONE);
     } catch (e) { setOcr((e as Error).message); }
   }
 
@@ -86,8 +87,10 @@ export function ProductEditor({ product, initial }: Props) {
         <span className="btn ghost filebtn">Leggi l&apos;INCI da una foto
           <input type="file" accept="image/*" capture="environment" aria-label="Foto della lista ingredienti" onChange={(e) => e.target.files?.[0] && readPhoto(e.target.files[0])} /></span>
         <span className="hint">{ocr}</span>
+        <AiNotice />
       </div>
       <div className="field"><label className="label" htmlFor="e-photo">Foto del prodotto (facoltativa)</label>
+        <span className="hint">Sarà visibile a tutti: inquadra solo il prodotto. Posizione e altri metadati vengono rimossi.</span>
         <input type="file" id="e-photo" accept="image/*" capture="environment" onChange={(e) => setPhoto(e.target.files?.[0] ?? null)} /></div>
       <div className="field"><label className="label" htmlFor="e-src">Fonte (facoltativa)</label>
         <input type="text" id="e-src" value={f.source} onChange={(e) => set("source", e.target.value)} placeholder="es. etichetta, scheda dm.it" /></div>

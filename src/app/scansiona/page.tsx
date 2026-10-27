@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { api, type Product } from "@/lib/client";
 import { Scanner } from "@/components/Scanner";
+import { ScanTabs } from "@/components/ScanTabs";
 
 export default function ScanPage() {
   const router = useRouter();
@@ -25,6 +26,7 @@ export default function ScanPage() {
 
   return (
     <div className="view">
+      <ScanTabs />
       <div className="panel scanbox">
         <h2 className="vh">Cerca con il codice a barre</h2>
         <p className="hint">Inquadra il codice a barre con la fotocamera, oppure scrivi le cifre sotto le barre.</p>

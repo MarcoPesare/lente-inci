@@ -13,6 +13,7 @@ export interface Product {
   origin: "user" | "obf";
   imageUrl: string | null;
   hasPhoto: boolean;
+  photoAt: string | null;
   score: number | null;
   flags: Flag[];
   coverage: number | null;
@@ -22,13 +23,14 @@ export interface Product {
 
 const COLS = sql`p.id, p.gtin, p.name, p.brand, p.category, p.mode, p.inci, p.source, p.origin,
   p.image_url, p.score, p.flags, p.coverage, p.is_italy, p.updated_at,
-  (ph.product_id IS NOT NULL) AS has_photo`;
+  (ph.product_id IS NOT NULL) AS has_photo, ph.updated_at AS photo_at`;
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function row(r: any): Product {
   return {
     id: r.id, gtin: r.gtin, name: r.name, brand: r.brand, category: r.category, mode: r.mode,
     inci: r.inci, source: r.source, origin: r.origin, imageUrl: r.image_url, hasPhoto: !!r.has_photo,
+    photoAt: r.photo_at ? new Date(r.photo_at).toISOString() : null,
     score: r.score === null ? null : Number(r.score), flags: r.flags ?? [], coverage: r.coverage,
     isItaly: r.is_italy, updatedAt: new Date(r.updated_at).toISOString(),
   };

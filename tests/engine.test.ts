@@ -11,6 +11,12 @@ test("riconosce gli ingredienti anche con errori di battitura", () => {
 test("divide qualunque separatore e unisce i nomi spezzati", () => {
   assert.deepEqual(parse("Aqua | Glycerin; Guar Hydroxypropyltrimonium| Chloride"), ["Aqua", "Glycerin", "Guar Hydroxypropyltrimonium Chloride"]);
   assert.deepEqual(parse("Aqua, 1,2-Hexanediol."), ["Aqua", "1,2-Hexanediol"]);
+  assert.deepEqual(parse("WATER (AQUA). GLYCERIN. CI 77891 (F.I.L. B12345/1). Mica"), ["WATER (AQUA)", "GLYCERIN", "CI 77891", "Mica"]);
+});
+
+test("una lista letta solo in parte non riceve un voto", () => {
+  const s = summarize("Tocopherol, crema idratante per il corpo con estratti naturali di avena e olio di enotera per pelli secche e sensibili", "leave");
+  assert.equal(s.score, null);
 });
 
 test("voto dello shampoo Balea alla menta", () => {

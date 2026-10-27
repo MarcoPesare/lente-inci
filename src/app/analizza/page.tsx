@@ -3,7 +3,9 @@ import Link from "next/link";
 import { useState } from "react";
 import { api, shrinkImage } from "@/lib/client";
 import { Report } from "@/components/Report";
+import { ScanTabs } from "@/components/ScanTabs";
 import type { Mode } from "@/lib/inci/engine";
+import { AiNotice, AI_DONE } from "@/components/AiNotice";
 
 const EXAMPLE = "Aqua, Alcohol, Betaine, Glucomannan, Sodium Benzoate, Parfum, Glycerin, Potassium Sorbate, Citric Acid, Algin, Caesalpinia Spinosa Gum, Levulinic Acid, Sodium Levulinate, Linum Usitatissimum Seed Extract, Benzyl Alcohol, Citronellol, Linalool, Limonene";
 
@@ -14,16 +16,17 @@ export default function AnalyzePage() {
   const [ocr, setOcr] = useState("");
 
   async function readPhoto(file: File) {
-    setOcr("Lettura dell'etichetta in corso…");
+    setOcr("Trascrizione dell'etichetta con l'IA in corso…");
     try {
       const fd = new FormData(); fd.append("photo", await shrinkImage(file), "label.jpg");
       const r = await api<{ inci: string; name: string }>("/api/ocr", { method: "POST", body: fd });
-      setText(r.inci); if (r.name && !name) setName(r.name); setOcr("Fatto: controlla il testo.");
+      setText(r.inci); if (r.name && !name) setName(r.name); setOcr(AI_DONE);
     } catch (e) { setOcr((e as Error).message); }
   }
 
   return (
     <div className="view">
+      <ScanTabs />
       <div className="panel">
         <h2 className="vh">Analizza una lista ingredienti</h2>
         <div className="field"><label className="label" htmlFor="a-name">Nome del prodotto (facoltativo)</label>
@@ -42,6 +45,7 @@ export default function AnalyzePage() {
           <button className="btn ghost" type="button" onClick={() => { setText(EXAMPLE); setMode("leave"); setName("Esempio: gel per capelli"); }}>Inserisci un esempio</button>
           {text.trim() && <Link className="btn" href={`/nuovo?${new URLSearchParams({ inci: text, name, mode })}`}>Salva come prodotto</Link>}
         </div>
+        <AiNotice />
         {ocr && <p className="hint">{ocr}</p>}
       </div>
       <div className="panel">{text.trim() ? <Report inci={text} mode={mode} /> : <p className="empty">Incolla una lista ingredienti per vedere voto e schede.</p>}</div>

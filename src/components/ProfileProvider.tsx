@@ -12,6 +12,7 @@ interface Ctx {
   compare: string[];
   toggleCompare: (id: string) => string | null;
   clearCompare: () => void;
+  eraseAll: () => Promise<void>;
 }
 const ProfileCtx = createContext<Ctx | null>(null);
 const LS = "lente-inci-profile";
@@ -22,15 +23,29 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
   const [compare, setCompare] = useState<string[]>([]);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const loaded = useRef(false);
+  const skipSave = useRef(false);
+  const onServer = useRef(false);
 
   useEffect(() => {
-    try { const v = JSON.parse(localStorage.getItem(LS) || "null"); if (v) setProfile({ ...emptyProfile(), ...v }); } catch {}
-    fetch("/api/profile").then((r) => (r.ok ? r.json() : null)).then((v) => { if (v) setProfile({ ...emptyProfile(), ...v }); })
-      .catch(() => {}).finally(() => { loaded.current = true; setReady(true); });
+    let local: Profile | null = null;
+    try { const v = JSON.parse(localStorage.getItem(LS) || "null"); if (v) { local = { ...emptyProfile(), ...v }; setProfile(local!); } } catch {}
+    // Se il server non ha ancora questo profilo vale la copia locale (che poi viene salvata sul server).
+    fetch("/api/profile").then((r) => (r.ok ? r.json() : null)).then((v) => {
+      if (!v) return;
+      const { stored, ...data } = v as Profile & { stored?: boolean };
+      onServer.current = !!stored;
+      if (stored || !local) setProfile({ ...emptyProfile(), ...data });
+      else setProfile({ ...local });
+    }).catch(() => {}).finally(() => { loaded.current = true; setReady(true); });
   }, []);
 
   useEffect(() => {
     if (!loaded.current) return;
+    if (skipSave.current) { skipSave.current = false; return; }
+    // chi non ha salvato niente non ha un profilo sul server (né il cookie)
+    const empty = !profile.favorites.length && !profile.history.length && !profile.avoidFlags.length && !profile.avoidIngr.length;
+    if (empty && !onServer.current) return;
+    onServer.current = true;
     try { localStorage.setItem(LS, JSON.stringify(profile)); } catch {}
     if (timer.current) clearTimeout(timer.current);
     timer.current = setTimeout(() => {
@@ -52,8 +67,17 @@ export function ProfileProvider({ children }: { children: ReactNode }) {
     return msg;
   }, []);
   const clearCompare = useCallback(() => setCompare([]), []);
+  /** Cancella tutto: server, cookie e copia locale. */
+  const eraseAll = useCallback(async () => {
+    if (timer.current) clearTimeout(timer.current);
+    await fetch("/api/profile", { method: "DELETE" });
+    try { localStorage.removeItem(LS); } catch {}
+    skipSave.current = true; // il profilo vuoto non va risalvato: niente nuovo cookie finché l'utente non fa qualcosa
+    onServer.current = false;
+    setCompare([]); setProfile(emptyProfile());
+  }, []);
 
-  return <ProfileCtx.Provider value={{ profile, ready, toggleFav, pushHistory, toggleAvoidFlag, toggleAvoidIngr, compare, toggleCompare, clearCompare }}>{children}</ProfileCtx.Provider>;
+  return <ProfileCtx.Provider value={{ profile, ready, toggleFav, pushHistory, toggleAvoidFlag, toggleAvoidIngr, compare, toggleCompare, clearCompare, eraseAll }}>{children}</ProfileCtx.Provider>;
 }
 
 export function useProfile() {

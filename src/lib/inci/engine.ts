@@ -144,23 +144,40 @@ export function lookup(rawName: string): Match | null {
 
 /** Divide un testo INCI in nomi di ingredienti, qualunque sia il separatore. */
 export function parse(text: string): string[] {
+  return split(text).names;
+}
+
+/**
+ * Come parse(), ma conta anche gli ingredienti stimati nei pezzi troppo lunghi per essere un nome
+ * (testo che non siamo riusciti a dividere): servono a non dare un voto pieno a una lista letta a metà.
+ */
+function split(text: string): { names: string[]; unread: number } {
   let t = String(text || "")
     .replace(/&(gt|lt|amp|quot|#39|apos|nbsp);?/g, " ")
     .replace(/\[[^\]]*\]/g, ",")
-    .replace(/(\d),(\d)/g, "$1§$2");
+    .replace(/\(f\.?i\.?l\.?[^)]*\)/gi, "")
+    .replace(/(\d),(\d)/g, "$1§$2")
+    // "WATER (AQUA). GLYCERIN. ..." : il punto seguito da una parola fa da separatore (non tocca C.I. 77491 né 1.5)
+    .replace(/([A-Za-zÀ-ɏ]{2}|[)\]\d])\s*\.\s+(?=[A-Za-z0-9À-ɏ(])/g, "$1,");
   t = t.replace(/^\s*(sostanze|ingredienti|ingredients|inci|bestandteile|inhaltsstoffe)\s*:?/gim, "");
   t = t.replace(/(ingredients|ingredienti|inhaltsstoffe)\s*:/gi, ",");
+  let unread = 0;
   const toks = t.split(/[,\n;|•·]+/)
-    .map((s) => s.replace(/§/g, ",").replace(/\(f\.?i\.?l\.?[^)]*\)/gi, "").replace(/\(nano\)/gi, "")
+    .map((s) => s.replace(/§/g, ",").replace(/\(nano\)/gi, "")
       .replace(/[*¹²³⁴⁰°†]+/g, "").replace(/\.+\s*$/, "").replace(/\s+/g, " ").trim())
-    .filter((s) => s && s.split(" ").length <= 7 && !/^(gli ingredienti|ingredients from|inhaltsstoffe aus|da agricoltura|from natural|ingredienti da)/i.test(s));
-  const out: string[] = [];
+    .filter((s) => {
+      if (!s || /^(gli ingredienti|ingredients from|inhaltsstoffe aus|da agricoltura|from natural|ingredienti da)/i.test(s)) return false;
+      const words = s.split(" ").length;
+      if (words > 7) { unread += Math.ceil(words / 3); return false; }
+      return true;
+    });
+  const names: string[] = [];
   for (let i = 0; i < toks.length; i++) {
     const a = toks[i];
-    if (i + 1 < toks.length && !INDEX.has(key(a)) && INDEX.has(key(a + " " + toks[i + 1]))) { out.push(a + " " + toks[i + 1]); i++; continue; }
-    out.push(a);
+    if (i + 1 < toks.length && !INDEX.has(key(a)) && INDEX.has(key(a + " " + toks[i + 1]))) { names.push(a + " " + toks[i + 1]); i++; continue; }
+    names.push(a);
   }
-  return out;
+  return { names, unread };
 }
 
 export interface Row { pos: number; raw: string; m: Match | null; dup: boolean; eff?: number }
@@ -179,7 +196,8 @@ const RINSE_SOFTENED: Flag[] = ["ALL", "PROF", "SOL", "IRR"];
 export function analyze(text: string, mode: Mode): Analysis {
   const rows: Row[] = [];
   const seen = new Set<string>();
-  parse(text).forEach((n, i) => {
+  const { names: parsed, unread } = split(text);
+  parsed.forEach((n, i) => {
     const m = lookup(n);
     const dup = !!(m && seen.has(m.e.name));
     if (m) seen.add(m.e.name);
@@ -202,7 +220,7 @@ export function analyze(text: string, mode: Mode): Analysis {
     if (e.flags.includes("FORM") || e.flags.includes("BAN")) extra += 2;
     else if (e.r === 0) extra += 1;
   }
-  const total = rows.filter((r) => !r.dup).length;
+  const total = rows.filter((r) => !r.dup).length + unread;
   let score: number | null = sw ? (ss / sw) / 4 * 20 - extra : null;
   if (score !== null) score = Math.max(0, Math.min(20, Math.round(score * 10) / 10));
   return {

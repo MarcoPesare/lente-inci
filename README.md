@@ -72,6 +72,8 @@ Per provare l'app dal telefono in locale, la fotocamera richiede https: usa `npx
 | `OCR_MODEL` | Modello usato per la lettura (predefinito `claude-sonnet-5-5`) |
 | `OBF_LIVE_LOOKUP` | `false` per disattivare la ricerca in tempo reale su Open Beauty Facts |
 | `OBF_USER_AGENT` | Identificazione richiesta da Open Beauty Facts: metti un tuo contatto |
+| `LEGAL_OWNER` | Titolare del trattamento, mostrato nella pagina /privacy |
+| `LEGAL_EMAIL` | Contatto per la privacy e i diritti GDPR, mostrato nella pagina /privacy |
 
 ## Comandi
 

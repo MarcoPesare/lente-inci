@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { use, useEffect, useState } from "react";
+import { Icon } from "@/components/Icon";
 import { api, shrinkImage, type Product } from "@/lib/client";
 import { CardList } from "@/components/ProductCard";
 import { useProfile, hasProfile } from "@/components/ProfileProvider";
@@ -12,6 +14,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
   const { id } = use(params);
   const { profile, toggleFav, pushHistory, compare, toggleCompare } = useProfile();
   const toast = useToast();
+  const router = useRouter();
   const [p, setP] = useState<Product | null | undefined>(undefined);
   const [alts, setAlts] = useState<Product[]>([]);
   const [photoMsg, setPhotoMsg] = useState("");
@@ -31,31 +34,37 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     try {
       const fd = new FormData(); fd.append("photo", await shrinkImage(file, 1200), "photo.jpg");
       const r = await api<{ bytes: number }>(`/api/products/${encodeURIComponent(p.id)}/photo`, { method: "POST", body: fd });
-      setP({ ...p, hasPhoto: true, updatedAt: new Date().toISOString() }); setPhotoMsg(""); toast(`Foto salvata (${Math.round(r.bytes / 1024)} KB).`);
+      setP({ ...p, hasPhoto: true, photoAt: new Date().toISOString() }); setPhotoMsg(""); toast(`Foto salvata (${Math.round(r.bytes / 1024)} KB).`);
     } catch (e) { setPhotoMsg((e as Error).message); }
   }
 
-  if (p === undefined) return <p className="empty"><span className="spinner" /> Caricamento…</p>;
+  if (p === undefined) return <div className="view"><div className="hero panel skel"><span className="thumb lg" style={{ ["--ts" as string]: "132px" }} /><div className="hero-txt"><i /><i /></div></div></div>;
   if (p === null) return <div className="view"><p className="notice warn">Prodotto non trovato.</p><Link href="/">Torna alla ricerca</Link></div>;
   const fav = profile.favorites.includes(p.id);
   const inCmp = compare.includes(p.id);
 
   return (
     <div className="view">
-      <div className="hero">
-        <Thumb p={p} size={120} className="hero-img" />
-        <div style={{ minWidth: 0 }}>
+      <button type="button" className="back" onClick={() => (history.length > 1 ? router.back() : router.push("/"))}><Icon name="back" size={18} />Indietro</button>
+      <div className="hero panel">
+        <Thumb p={p} size={132} className="lg" />
+        <div className="hero-txt">
+          {p.brand && <div className="hero-brand">{p.brand}</div>}
           <h2 className="page-title">{p.name}</h2>
-          <div className="hint">{p.brand}{p.brand ? " · " : ""}{p.category}</div>
+          <div className="hint">{p.category} · {p.mode === "rinse" ? "da risciacquare" : "da lasciare in posa"}</div>
           {p.gtin && <div className="gtin">EAN {p.gtin}</div>}
         </div>
-      </div>
-      <div className="row">
-        <button className={`btn ${fav ? "" : "ghost"}`} type="button" onClick={() => { const a = toggleFav(p.id); toast(a ? "Aggiunto ai preferiti." : "Rimosso dai preferiti."); }}>{fav ? "★ Nei preferiti" : "☆ Aggiungi ai preferiti"}</button>
-        <button className="btn ghost" type="button" onClick={() => { const m = toggleCompare(p.id); if (m) toast(m); }}>{inCmp ? "Togli dal confronto" : "Confronta"}</button>
-        <span className="btn ghost filebtn">{p.hasPhoto ? "Cambia foto" : "Aggiungi foto"}
-          <input type="file" accept="image/*" capture="environment" aria-label="Foto del prodotto" onChange={(e) => e.target.files?.[0] && uploadPhoto(e.target.files[0])} /></span>
-        <Link className="btn ghost" href={`/p/${encodeURIComponent(p.id)}/modifica`}>{p.origin === "obf" ? "Correggi" : "Modifica"}</Link>
+        <div className="actions">
+          <button type="button" aria-pressed={fav} onClick={() => { const a = toggleFav(p.id); toast(a ? "Aggiunto ai preferiti." : "Rimosso dai preferiti."); }}>
+            <Icon name="star" filled={fav} />{fav ? "Salvato" : "Salva"}</button>
+          <button type="button" aria-pressed={inCmp} onClick={() => { const m = toggleCompare(p.id); if (m) toast(m); }}>
+            <Icon name="compare" />{inCmp ? "In confronto" : "Confronta"}</button>
+          <label className="filebtn">
+            <Icon name="camera" />{p.hasPhoto ? "Cambia foto" : "Foto"}
+            <input type="file" accept="image/*" capture="environment" aria-label="Foto del prodotto" onChange={(e) => e.target.files?.[0] && uploadPhoto(e.target.files[0])} />
+          </label>
+          <Link href={`/p/${encodeURIComponent(p.id)}/modifica`}><Icon name="edit" />{p.origin === "obf" ? "Correggi" : "Modifica"}</Link>
+        </div>
       </div>
       {photoMsg && <p className="hint">{photoMsg}</p>}
       <div className="panel">
@@ -65,7 +74,8 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
         )}
       </div>
       <div className="panel">
-        <span className="label">Alternative migliori nella stessa categoria</span>
+        <h3 className="sh">Alternative migliori</h3>
+        <p className="hint">Stessa categoria, voto più alto{hasProfile(profile) ? ", adatte al tuo profilo" : ""}.</p>
         <CardList items={alts} empty={`Nessuna alternativa con voto più alto${hasProfile(profile) ? " e adatta al tuo profilo" : ""}, per ora.`} />
       </div>
       {p.origin === "obf"

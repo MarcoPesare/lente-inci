@@ -1,10 +1,13 @@
 "use client";
 import { useState } from "react";
 import { DICTIONARY, FLAGS, lookup, type Flag } from "@/lib/inci/engine";
+import Link from "next/link";
 import { useProfile } from "@/components/ProfileProvider";
+import { useToast } from "@/components/Toast";
 
 export default function ProfilePage() {
-  const { profile, toggleAvoidFlag, toggleAvoidIngr } = useProfile();
+  const { profile, toggleAvoidFlag, toggleAvoidIngr, eraseAll } = useProfile();
+  const toast = useToast();
   const [v, setV] = useState("");
   const keys = (Object.keys(FLAGS) as Flag[]).filter((f) => FLAGS[f].avoid);
   return (
@@ -25,10 +28,26 @@ export default function ProfilePage() {
           <span key={n} className="chip bad">{n}<button type="button" onClick={() => toggleAvoidIngr(n)} aria-label={`Rimuovi ${n}`}>×</button></span>
         )) : <span className="hint">Nessun ingrediente aggiunto.</span>}</div>
       </div>
-      <p className="hint">Profilo, preferiti e cronologia sono salvati sul server e li ritrovi su ogni dispositivo.</p>
-      <details className="panel method"><summary><strong>Come viene calcolato il voto</strong></summary>
+      <section className="panel" id="dati">
+        <h3 className="sh">I tuoi dati</h3>
+        <p className="hint">Il profilo è anonimo: è legato a questo dispositivo con un codice casuale, senza nome né email. Si cancella da solo dopo 12 mesi di inattività.</p>
+        <div className="row">
+          <button className="btn ghost" type="button" onClick={() => {
+            const { favorites, history, avoidFlags, avoidIngr } = profile;
+            const url = URL.createObjectURL(new Blob([JSON.stringify({ esportato: new Date().toISOString(), favorites, history, avoidFlags, avoidIngr }, null, 2)], { type: "application/json" }));
+            const a = document.createElement("a"); a.href = url; a.download = "lente-inci-dati.json"; a.click(); URL.revokeObjectURL(url);
+          }}>Scarica i miei dati</button>
+          <button className="btn danger" type="button" onClick={async () => {
+            if (!confirm("Cancellare preferiti, cronologia e ingredienti da evitare da questo dispositivo e dal server? Non si può annullare.")) return;
+            await eraseAll(); toast("Dati cancellati.");
+          }}>Cancella tutti i miei dati</button>
+        </div>
+        <p className="hint"><Link href="/privacy">Privacy e uso dell&apos;IA</Link></p>
+      </section>
+      <details className="panel method" id="metodo"><summary><strong>Come viene calcolato il voto</strong></summary>
         <ul>
-          <li>Ogni ingrediente del dizionario ha un giudizio da 0 (da evitare) a 4 (ottimo), basato su sicurezza, tollerabilità e utilità. Riferimenti: regolamento cosmetico UE 1223/2009 e pareri del comitato scientifico europeo SCCS.</li>
+          <li>Il voto va da 0 a 100 e nasce da regole fisse e pubbliche, non da un&apos;intelligenza artificiale.</li>
+          <li>Ogni ingrediente del dizionario ha un giudizio su cinque livelli, da &quot;da evitare&quot; a &quot;ottimo&quot;, basato su sicurezza, tollerabilità e utilità. Riferimenti: regolamento cosmetico UE 1223/2009 e pareri del comitato scientifico europeo SCCS.</li>
           <li>Gli ingredienti che non sono nel dizionario vengono valutati per famiglia quando possibile (oli vegetali, estratti, siliconi, PEG, coloranti…); gli altri non contano.</li>
           <li>Gli ingredienti sono in ordine di quantità decrescente: i primi pesano di più. Dopo circa il decimo, le quantità sono di solito sotto l&apos;1%.</li>
           <li>Nei prodotti da risciacquare, profumi, allergeni, solfati e ingredienti irritanti valgono un gradino in più, perché il contatto dura poco.</li>

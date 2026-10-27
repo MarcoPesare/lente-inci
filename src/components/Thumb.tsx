@@ -1,12 +1,23 @@
+"use client";
+import { useState } from "react";
 import type { Product } from "@/lib/products";
 
-/** Foto del prodotto: quella scattata dall'utente, altrimenti quella del catalogo, altrimenti l'iniziale. */
-export function Thumb({ p, size = 56, className = "thumb" }: { p: Product; size?: number; className?: string }) {
-  const src = p.hasPhoto ? `/api/photos/${encodeURIComponent(p.id)}?v=${encodeURIComponent(p.updatedAt)}` : p.imageUrl;
-  if (src) {
-    // eslint-disable-next-line @next/next/no-img-element
-    return <img className={className} src={src} alt="" width={size} height={size} loading="lazy" decoding="async" style={{ width: size, height: size }} referrerPolicy="no-referrer" />;
+/**
+ * Miniatura del prodotto, normalizzata dal server (/api/img): quadrata, prodotto intero, senza bande.
+ * Se non c'è nessuna immagine, o non si carica, mostra l'iniziale della marca.
+ */
+export function Thumb({ p, size = 64, className = "" }: { p: Product; size?: number; className?: string }) {
+  const src = p.hasPhoto || p.imageUrl ? `/api/img/${encodeURIComponent(p.id)}?v=${encodeURIComponent(p.photoAt ?? p.updatedAt)}` : null;
+  const [failed, setFailed] = useState<string | null>(null);
+  const box = { ["--ts" as string]: `${size}px` };
+  if (src && failed !== src) {
+    return (
+      <span className={`thumb ${className}`} style={box}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={src} alt="" width={size} height={size} loading="lazy" decoding="async" onError={() => setFailed(src)} />
+      </span>
+    );
   }
   const ini = (p.brand || p.name || "?").trim().slice(0, 1).toUpperCase();
-  return <div className={className + " ph"} aria-hidden="true" style={{ width: size, height: size, fontSize: Math.round(size / 3) }}>{ini}</div>;
+  return <span className={`thumb ph ${className}`} aria-hidden="true" style={{ ...box, fontSize: Math.round(size / 2.6) }}>{ini}</span>;
 }
