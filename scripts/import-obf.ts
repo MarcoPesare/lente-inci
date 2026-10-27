@@ -7,6 +7,7 @@
  *
  * I prodotti corretti a mano (origin = 'user') non vengono mai sovrascritti.
  */
+import "./_env";
 import { createReadStream } from "node:fs";
 import { Readable } from "node:stream";
 import { createGunzip } from "node:zlib";

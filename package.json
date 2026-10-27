@@ -5,7 +5,7 @@
   "description": "Web app (PWA) per analizzare gli ingredienti (INCI) dei cosmetici.",
   "type": "module",
   "engines": {
-    "node": ">=20.9"
+    "node": ">=20.12"
   },
   "scripts": {
     "dev": "next dev",

@@ -26,7 +26,7 @@ Il motore di analisi (`src/lib/inci/engine.ts`) è lo stesso sul server, dove ca
 
 ## Avvio in locale
 
-Servono Node.js 20.9 o superiore e Docker.
+Servono Node.js 20.12 o superiore (consigliato il 22) e, solo per il database locale, Docker.
 
 ```bash
 cp .env.example .env

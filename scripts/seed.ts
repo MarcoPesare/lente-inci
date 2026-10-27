@@ -1,3 +1,4 @@
+import "./_env";
 import { readFileSync } from "node:fs";
 import { sql } from "../src/lib/db";
 import { upsert, type ProductInput } from "../src/lib/products";

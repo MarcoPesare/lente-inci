@@ -1,3 +1,4 @@
+import "./_env";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { sql } from "../src/lib/db";

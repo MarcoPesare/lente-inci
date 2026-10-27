@@ -1,3 +1,4 @@
+import "./_env";
 import { sql } from "../src/lib/db";
 import { summarize, type Mode } from "../src/lib/inci/engine";
 
