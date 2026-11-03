@@ -71,6 +71,7 @@ Lavori pianificati per le prossime versioni:
 - Accesso con una password condivisa (`APP_PASSWORD`), confrontata a tempo costante.
 - Sessioni firmate con HMAC-SHA256 e `APP_SECRET`, che scadono dopo 7 giorni e si annullano se cambia la password. In produzione l'app non parte senza un `APP_SECRET` di almeno 32 caratteri.
 - Creazione, modifica e cancellazione di prodotti e foto solo con una sessione valida. Senza password, in produzione queste operazioni sono disattivate.
+- Ricerca dei codici a barre: un prodotto trovato in tempo reale su Open Beauty Facts viene salvato nel database solo se le modifiche sono consentite. In produzione senza password viene mostrato ma non salvato.
 - Foto caricate e lettura da foto: limite di 15 MB, controllato prima di leggere il file, e solo immagini raster (niente SVG).
 - Profilo anonimo per dispositivo, senza dati identificativi.
 
@@ -79,7 +80,6 @@ Lavori pianificati per le prossime versioni:
 - **Niente account e ruoli:** chi conosce la password condivisa può modificare o cancellare qualsiasi prodotto del catalogo, e non c'è uno storico delle modifiche.
 - **Niente limiti di frequenza:** né sul login (tentativi di password illimitati), né sulla lettura da foto (ogni richiesta consuma credito Anthropic), né sulle scritture.
 - **Header di sicurezza da completare:** mancano `Content-Security-Policy`, `Strict-Transport-Security`, `X-Frame-Options`, `X-Content-Type-Options` e `Referrer-Policy`.
-- **Ricerca dei codici a barre:** se `APP_PASSWORD` non è impostata, la ricerca in tempo reale su Open Beauty Facts salva nel database i prodotti trovati anche senza sessione, pure quando le altre modifiche al catalogo sono disattivate. Sono dati presi da Open Beauty Facts, non scritti dall'utente.
 - **Dipendenze:** Zod 3 ha un advisory noto (GHSA-mrhx-c7xc-m3w5, consumo di memoria con collezioni molto grandi); il passaggio a Zod 4 è pianificato.
 
 ## Tecnologie

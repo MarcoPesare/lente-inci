@@ -1,5 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { getProduct, remove, upsert } from "@/lib/products";
+import { getByCode, getProduct, remove, upsert } from "@/lib/products";
+import { isBarcode, lookupBarcode } from "@/lib/barcode";
+import { fetchObf } from "@/lib/obf";
 import { ProductBody } from "@/lib/schemas";
 import { requireWriteAccess } from "@/lib/guard";
 
@@ -7,8 +9,16 @@ export const dynamic = "force-dynamic";
 type Ctx = { params: Promise<{ id: string }> };
 
 export async function GET(_: NextRequest, { params }: Ctx) {
-  const p = await getProduct((await params).id);
-  return p ? NextResponse.json(p) : NextResponse.json({ error: "Prodotto non trovato" }, { status: 404 });
+  const id = (await params).id;
+  const p = await getProduct(id);
+  if (p) return NextResponse.json(p);
+  // Prodotto mostrato dopo una scansione ma non salvato (produzione senza APP_PASSWORD): lo si rilegge
+  // da Open Beauty Facts, senza mai salvarlo da qui.
+  if (isBarcode(id)) {
+    const r = await lookupBarcode(id, false, { getByCode, fetchObf, upsert });
+    if (r) return NextResponse.json(r.product);
+  }
+  return NextResponse.json({ error: "Prodotto non trovato" }, { status: 404 });
 }
 
 /** Modifica, oppure correzione di un prodotto del catalogo (diventa un prodotto dell'utente). */

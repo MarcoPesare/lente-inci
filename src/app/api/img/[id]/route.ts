@@ -1,6 +1,8 @@
 import type { NextRequest } from "next/server";
 import { sql } from "@/lib/db";
 import { isAllowedImageUrl, largerObfUrl, normalizeThumb } from "@/lib/image";
+import { isBarcode } from "@/lib/barcode";
+import { fetchObf } from "@/lib/obf";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -19,7 +21,7 @@ export async function GET(_: NextRequest, { params }: { params: Promise<{ id: st
     FROM products p LEFT JOIN photos ph ON ph.product_id = p.id LEFT JOIN thumbs t ON t.product_id = p.id
     WHERE p.id = ${id}`;
   const row = r[0];
-  if (!row) return new Response("Prodotto non trovato", { status: 404 });
+  if (!row) return isBarcode(id) ? unsavedThumb(id) : new Response("Prodotto non trovato", { status: 404 });
 
   const src = row.photo_at ? `${PIPELINE}:photo:${new Date(row.photo_at).getTime()}` : row.image_url ? `${PIPELINE}:${row.image_url}` : null;
   if (!src) return new Response("Nessuna immagine", { status: 404 });
@@ -36,6 +38,18 @@ export async function GET(_: NextRequest, { params }: { params: Promise<{ id: st
   await sql`INSERT INTO thumbs (product_id, src, data, updated_at) VALUES (${id}, ${src}, ${data}, now())
     ON CONFLICT (product_id) DO UPDATE SET src = EXCLUDED.src, data = EXCLUDED.data, updated_at = now()`;
   return image(data);
+}
+
+/** Miniatura di un prodotto non salvato: generata dall'immagine di Open Beauty Facts, senza scrivere nel database. */
+async function unsavedThumb(code: string) {
+  const url = (await fetchObf(code))?.imageUrl;
+  const original = url ? await download(url) : null;
+  if (!original) return new Response("Prodotto non trovato", { status: 404 });
+  try {
+    return image(await normalizeThumb(original));
+  } catch {
+    return new Response("Immagine non leggibile", { status: 415 });
+  }
 }
 
 function image(data: Uint8Array) {
