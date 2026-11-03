@@ -1,5 +1,7 @@
 # Lente INCI (beta)
 
+[![CI](https://github.com/MarcoPesare/lente-inci/actions/workflows/ci.yml/badge.svg)](https://github.com/MarcoPesare/lente-inci/actions/workflows/ci.yml)
+
 Web app per analizzare gli ingredienti (INCI) dei cosmetici. Funziona dal browser sia su computer sia su telefono e si può **installare sulla schermata Home** come un'app (PWA), senza App Store né TestFlight.
 
 <!-- screenshot -->
@@ -114,6 +116,7 @@ Per provare l'app dal telefono in locale, la fotocamera richiede https: usa `npx
 |---|---|
 | `npm run dev` | Server di sviluppo |
 | `npm run build` / `npm start` | Build e avvio di produzione |
+| `npm run lint` | Controllo del codice con ESLint (configurazione standard di Next.js) |
 | `npm run typecheck` | Controllo dei tipi |
 | `npm test` | Test del motore di analisi |
 | `npm run db:migrate` | Applica i file in `sql/` |
