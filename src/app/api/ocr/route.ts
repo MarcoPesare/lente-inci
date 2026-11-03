@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import Anthropic from "@anthropic-ai/sdk";
 import sharp from "sharp";
+import { checkContentLength, checkImageUpload } from "@/lib/upload";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -11,8 +12,12 @@ const PROMPT =
 /** Legge l'INCI da una foto dell'etichetta con Claude (serve ANTHROPIC_API_KEY). */
 export async function POST(req: NextRequest) {
   if (!process.env.ANTHROPIC_API_KEY) return NextResponse.json({ error: "Lettura da foto non configurata sul server." }, { status: 501 });
+  const len = checkContentLength(req.headers.get("content-length"));
+  if (!len.ok) return NextResponse.json({ error: len.error }, { status: len.status });
   const form = await req.formData().catch(() => null);
   const file = form?.get("photo");
+  const check = await checkImageUpload(file);
+  if (!check.ok) return NextResponse.json({ error: check.error }, { status: check.status });
   if (!(file instanceof Blob)) return NextResponse.json({ error: "Nessuna foto ricevuta" }, { status: 400 });
   try {
     const jpeg = await sharp(Buffer.from(await file.arrayBuffer()), { failOn: "none" }).rotate()

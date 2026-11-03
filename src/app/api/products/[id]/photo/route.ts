@@ -2,6 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import sharp from "sharp";
 import { sql } from "@/lib/db";
 import { getProduct } from "@/lib/products";
+import { checkContentLength, checkImageUpload } from "@/lib/upload";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -10,10 +11,13 @@ export const runtime = "nodejs";
 export async function POST(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const p = await getProduct((await params).id);
   if (!p) return NextResponse.json({ error: "Prodotto non trovato" }, { status: 404 });
+  const len = checkContentLength(req.headers.get("content-length"));
+  if (!len.ok) return NextResponse.json({ error: len.error }, { status: len.status });
   const form = await req.formData().catch(() => null);
   const file = form?.get("photo");
+  const check = await checkImageUpload(file);
+  if (!check.ok) return NextResponse.json({ error: check.error }, { status: check.status });
   if (!(file instanceof Blob)) return NextResponse.json({ error: "Nessuna foto ricevuta" }, { status: 400 });
-  if (file.size > 15 * 1024 * 1024) return NextResponse.json({ error: "La foto supera i 15 MB" }, { status: 413 });
   try {
     const img = sharp(Buffer.from(await file.arrayBuffer()), { failOn: "none" }).rotate().resize(480, 480, { fit: "inside", withoutEnlargement: true });
     const { data, info } = await img.webp({ quality: 78, effort: 5 }).toBuffer({ resolveWithObject: true });
