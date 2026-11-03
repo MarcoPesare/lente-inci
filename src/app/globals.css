@@ -227,6 +227,9 @@ a.card{text-decoration:none;color:inherit}
 /* testata della scheda prodotto */
 .hero{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;align-items:center}
 .hero-txt{display:grid;gap:3px;min-width:0}
+.hero-fig{margin:0;display:grid;justify-items:center;gap:5px}
+.hero-fig figcaption{font-size:11px;line-height:1.3;color:var(--muted);text-align:center;max-width:132px}
+.hero-fig figcaption a{color:inherit}
 .hero-brand{font-size:13px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.06em}
 .hero.skel i{display:block;height:16px;border-radius:8px}
 .actions{grid-column:1 / -1;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;border-top:1px solid var(--line);padding-top:12px}

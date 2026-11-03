@@ -47,7 +47,16 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
     <div className="view">
       <button type="button" className="back" onClick={() => (history.length > 1 ? router.back() : router.push("/"))}><Icon name="back" size={18} />Indietro</button>
       <div className="hero panel">
-        <Thumb p={p} size={132} className="lg" />
+        <figure className="hero-fig">
+          <Thumb p={p} size={132} className="lg" />
+          {/* foto del catalogo: licenza CC BY-SA 3.0, autori nella scheda Open Beauty Facts */}
+          {!p.hasPhoto && p.imageUrl && (
+            <figcaption>
+              Foto: <a href={`https://world.openbeautyfacts.org/product/${p.gtin}`} target="_blank" rel="noopener noreferrer">Open Beauty Facts</a>,{" "}
+              <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.it" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>
+            </figcaption>
+          )}
+        </figure>
         <div className="hero-txt">
           {p.brand && <div className="hero-brand">{p.brand}</div>}
           <h2 className="page-title">{p.name}</h2>

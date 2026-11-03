@@ -89,7 +89,10 @@ export default function SearchPage() {
         <div className="row" style={{ justifyContent: "center" }}><button className="btn ghost" type="button" onClick={more} disabled={loading}>{loading ? "Carico…" : "Mostra altri"}</button></div>
       )}
       <div className="row" style={{ justifyContent: "space-between" }}>
-        <p className="hint">Catalogo da <a href="https://world.openbeautyfacts.org" target="_blank" rel="noopener noreferrer">Open Beauty Facts</a>, dati aperti ODbL. <Link href="/privacy">Privacy</Link></p>
+        <p className="hint">
+          Catalogo: <a href="https://world.openbeautyfacts.org" target="_blank" rel="noopener noreferrer">© Open Beauty Facts contributors</a>, <a href="https://opendatacommons.org/licenses/odbl/1-0/" target="_blank" rel="noopener noreferrer">ODbL</a>.
+          Foto dei prodotti: <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.it" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>. <Link href="/privacy">Privacy</Link>
+        </p>
         <Link className="btn ghost sm" href="/nuovo"><Icon name="plus" size={16} />Aggiungi un prodotto</Link>
       </div>
     </div>
