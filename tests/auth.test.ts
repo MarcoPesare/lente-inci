@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { authEnabled, AuthConfigError, createSession, SESSION_TTL_SECONDS, verifySession } from "../src/lib/auth";
+import { authEnabled, AuthConfigError, checkWriteAccess, createSession, SESSION_TTL_SECONDS, verifySession } from "../src/lib/auth";
 import { passwordMatches } from "../src/lib/password";
 
 const ENV = { APP_PASSWORD: "password-della-beta", APP_SECRET: "s".repeat(48) };
@@ -55,4 +55,18 @@ test("protezione disattivata senza password, errore di configurazione senza segr
   assert.equal(authEnabled(ENV), true);
   assert.throws(() => authEnabled({ APP_PASSWORD: "pw" }), AuthConfigError);
   await assert.rejects(() => createSession({ APP_PASSWORD: "pw", APP_SECRET: "corto" }, NOW), AuthConfigError);
+});
+
+test("scritture del catalogo: servono una sessione valida, o lo sviluppo locale senza password", async () => {
+  const t = (await createSession(ENV))!;
+  assert.deepEqual(await checkWriteAccess(t, ENV), { ok: true });
+  const noCookie = await checkWriteAccess(undefined, ENV);
+  assert.equal(!noCookie.ok && noCookie.status, 401);
+  const forged = await checkWriteAccess(t.slice(0, -3) + "abc", ENV);
+  assert.equal(!forged.ok && forged.status, 401);
+  const prodOpen = await checkWriteAccess(undefined, { NODE_ENV: "production" });
+  assert.equal(!prodOpen.ok && prodOpen.status, 403);
+  assert.deepEqual(await checkWriteAccess(undefined, { NODE_ENV: "development" }), { ok: true });
+  const noSecret = await checkWriteAccess(t, { APP_PASSWORD: "pw", NODE_ENV: "production" });
+  assert.equal(!noSecret.ok && noSecret.status, 503);
 });

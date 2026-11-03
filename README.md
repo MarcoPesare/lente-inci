@@ -49,7 +49,7 @@ Tutte le funzioni elencate qui sono già funzionanti nella beta.
 ### Limiti noti
 
 - Nessun account utente: l'accesso alla beta è protetto da una password condivisa e il profilo non si sincronizza tra dispositivi.
-- Chiunque abbia accesso all'app può modificare o cancellare i prodotti del catalogo, e non ci sono limiti di frequenza sulle richieste: per questo non esiste ancora una demo pubblica.
+- Le modifiche al catalogo richiedono la sessione della password condivisa, ma chiunque conosca la password può modificare o cancellare qualsiasi prodotto, e non ci sono limiti di frequenza sulle richieste: per questo non esiste ancora una demo pubblica.
 - Il voto si basa su un dizionario di circa 580 ingredienti curato a mano: è un'indicazione, non un parere medico.
 - La lettura dell'INCI da foto richiede una chiave API Anthropic. Senza, il resto dell'app funziona normalmente e il pulsante risponde che la funzione non è configurata.
 - I test automatici coprono solo il motore di analisi.
@@ -103,7 +103,7 @@ Per provare l'app dal telefono in locale, la fotocamera richiede https: usa `npx
 
 ## Pubblicazione online (beta privata)
 
-> Le scritture sul catalogo non sono ancora protette da account e ruoli (vedi *Limiti noti*): pubblica l'app solo con `APP_PASSWORD` impostata.
+> Le scritture sul catalogo non sono ancora protette da account e ruoli (vedi *Limiti noti*): pubblica l'app solo con `APP_PASSWORD` e `APP_SECRET` impostati. Senza `APP_PASSWORD`, in produzione le modifiche al catalogo sono disattivate.
 
 1. Crea un database PostgreSQL gratuito su [Neon](https://neon.tech) o [Supabase](https://supabase.com) e copia la stringa di connessione.
 2. Su [Vercel](https://vercel.com) importa questo repository.
@@ -121,7 +121,7 @@ Per provare l'app dal telefono in locale, la fotocamera richiede https: usa `npx
 | Nome | A cosa serve |
 |---|---|
 | `DATABASE_URL` | Connessione a PostgreSQL |
-| `APP_PASSWORD` | Se impostata, l'app chiede una password: tiene privata la beta |
+| `APP_PASSWORD` | Se impostata, l'app chiede una password e solo chi ha fatto l'accesso può creare, modificare o cancellare prodotti e foto. Se vuota, in sviluppo l'app è aperta; in produzione è consultabile ma le modifiche al catalogo sono disattivate |
 | `APP_SECRET` | Stringa casuale di almeno 32 caratteri per firmare il cookie di accesso (`openssl rand -base64 48`). **Obbligatoria in produzione**: se manca o è più corta, l'app non parte. In sviluppo compare solo un avviso, ma l'accesso con password non funziona |
 | `ANTHROPIC_API_KEY` | Abilita la lettura dell'INCI da foto |
 | `OCR_MODEL` | Modello usato per la lettura (predefinito `claude-sonnet-5-5`) |

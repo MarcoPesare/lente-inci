@@ -3,12 +3,15 @@ import sharp from "sharp";
 import { sql } from "@/lib/db";
 import { getProduct } from "@/lib/products";
 import { checkContentLength, checkImageUpload } from "@/lib/upload";
+import { requireWriteAccess } from "@/lib/guard";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
 /** Riceve una foto, la ridimensiona a 480 px e la salva in WebP (circa 20-40 KB). */
 export async function POST(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const denied = await requireWriteAccess(req);
+  if (denied) return denied;
   const p = await getProduct((await params).id);
   if (!p) return NextResponse.json({ error: "Prodotto non trovato" }, { status: 404 });
   const len = checkContentLength(req.headers.get("content-length"));
@@ -31,7 +34,9 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
   }
 }
 
-export async function DELETE(_: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+  const denied = await requireWriteAccess(req);
+  if (denied) return denied;
   await sql`DELETE FROM photos WHERE product_id = ${(await params).id}`;
   return NextResponse.json({ ok: true });
 }

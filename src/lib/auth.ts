@@ -79,3 +79,25 @@ export async function verifySession(token: string | undefined | null, env: AuthE
     return false;
   }
 }
+
+export type WriteCheck = { ok: true } | { ok: false; status: 401 | 403 | 503; error: string };
+
+/**
+ * Chi può creare, modificare o cancellare prodotti e foto:
+ * - con APP_PASSWORD impostata, solo chi ha una sessione valida;
+ * - senza APP_PASSWORD, in produzione nessuno (non può esistere una sessione); in sviluppo tutti.
+ */
+export async function checkWriteAccess(cookie: string | undefined, env: AuthEnv = process.env): Promise<WriteCheck> {
+  try {
+    if (authEnabled(env)) {
+      return (await verifySession(cookie, env)) ? { ok: true } : { ok: false, status: 401, error: "Accesso richiesto: entra con la password per modificare il catalogo." };
+    }
+  } catch (e) {
+    if (!(e instanceof AuthConfigError)) throw e;
+    return { ok: false, status: 503, error: "Configurazione incompleta: APP_SECRET non valido." };
+  }
+  if (env.NODE_ENV === "production") {
+    return { ok: false, status: 403, error: "Modifiche al catalogo disattivate: sul server non è impostata APP_PASSWORD." };
+  }
+  return { ok: true };
+}

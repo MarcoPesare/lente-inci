@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { search, upsert, getByCode, getMany } from "@/lib/products";
 import { ProductBody } from "@/lib/schemas";
+import { requireWriteAccess } from "@/lib/guard";
 import type { Flag } from "@/lib/inci/engine";
 
 export const dynamic = "force-dynamic";
@@ -22,6 +23,8 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
+  const denied = await requireWriteAccess(req);
+  if (denied) return denied;
   const parsed = ProductBody.safeParse(await req.json().catch(() => null));
   if (!parsed.success) return NextResponse.json({ error: parsed.error.issues[0]?.message ?? "Dati non validi" }, { status: 400 });
   const b = parsed.data;

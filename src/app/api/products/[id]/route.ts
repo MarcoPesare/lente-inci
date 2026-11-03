@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { getProduct, remove, upsert } from "@/lib/products";
 import { ProductBody } from "@/lib/schemas";
+import { requireWriteAccess } from "@/lib/guard";
 
 export const dynamic = "force-dynamic";
 type Ctx = { params: Promise<{ id: string }> };
@@ -12,6 +13,8 @@ export async function GET(_: NextRequest, { params }: Ctx) {
 
 /** Modifica, oppure correzione di un prodotto del catalogo (diventa un prodotto dell'utente). */
 export async function PUT(req: NextRequest, { params }: Ctx) {
+  const denied = await requireWriteAccess(req);
+  if (denied) return denied;
   const { id } = await params;
   const cur = await getProduct(id);
   if (!cur) return NextResponse.json({ error: "Prodotto non trovato" }, { status: 404 });
@@ -21,7 +24,9 @@ export async function PUT(req: NextRequest, { params }: Ctx) {
   return NextResponse.json(p);
 }
 
-export async function DELETE(_: NextRequest, { params }: Ctx) {
+export async function DELETE(req: NextRequest, { params }: Ctx) {
+  const denied = await requireWriteAccess(req);
+  if (denied) return denied;
   await remove((await params).id);
   return NextResponse.json({ ok: true });
 }
