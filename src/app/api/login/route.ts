@@ -1,11 +1,17 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { COOKIE, sessionToken } from "@/lib/auth";
+import { AuthConfigError, COOKIE, sessionToken } from "@/lib/auth";
 
 export async function POST(req: NextRequest) {
   const form = await req.formData();
   const next = String(form.get("next") || "/");
   const safeNext = next.startsWith("/") && !next.startsWith("//") ? next : "/";
-  const token = await sessionToken();
+  let token: string | null;
+  try {
+    token = await sessionToken();
+  } catch (e) {
+    if (!(e instanceof AuthConfigError)) throw e;
+    return NextResponse.redirect(new URL(`/login?error=config&next=${encodeURIComponent(safeNext)}`, req.url), 303);
+  }
   if (!token || form.get("password") !== process.env.APP_PASSWORD) {
     return NextResponse.redirect(new URL(`/login?error=1&next=${encodeURIComponent(safeNext)}`, req.url), 303);
   }

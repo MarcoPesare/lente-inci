@@ -9,7 +9,9 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
       <input type="hidden" name="next" value={sp.next ?? "/"} />
       <div className="field"><label className="label" htmlFor="pw">Password</label>
         <input type="password" id="pw" name="password" required autoFocus autoComplete="current-password" style={{ width: "100%", font: "inherit", padding: "10px 12px", borderRadius: 7, border: "1px solid var(--line)", background: "var(--bg)", color: "var(--ink)" }} /></div>
-      {sp.error && <p className="hint warnline">Password errata.</p>}
+      {sp.error === "config"
+        ? <p className="hint warnline">Accesso non disponibile: il server non ha un APP_SECRET valido (almeno 32 caratteri).</p>
+        : sp.error && <p className="hint warnline">Password errata.</p>}
       <button className="btn" type="submit">Entra</button>
     </form>
   );

@@ -122,7 +122,7 @@ Per provare l'app dal telefono in locale, la fotocamera richiede https: usa `npx
 |---|---|
 | `DATABASE_URL` | Connessione a PostgreSQL |
 | `APP_PASSWORD` | Se impostata, l'app chiede una password: tiene privata la beta |
-| `APP_SECRET` | Stringa casuale per firmare il cookie di accesso |
+| `APP_SECRET` | Stringa casuale di almeno 32 caratteri per firmare il cookie di accesso (`openssl rand -base64 48`). **Obbligatoria in produzione**: se manca o è più corta, l'app non parte. In sviluppo compare solo un avviso, ma l'accesso con password non funziona |
 | `ANTHROPIC_API_KEY` | Abilita la lettura dell'INCI da foto |
 | `OCR_MODEL` | Modello usato per la lettura (predefinito `claude-sonnet-5-5`) |
 | `OBF_LIVE_LOOKUP` | `false` per disattivare la ricerca in tempo reale su Open Beauty Facts |
