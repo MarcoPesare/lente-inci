@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { checkAppSecret, MIN_SECRET_LENGTH, secretStartupMessage } from "../src/lib/secret";
-import { AuthConfigError, sessionToken } from "../src/lib/auth";
+import { AuthConfigError, createSession } from "../src/lib/auth";
 import { register } from "../src/instrumentation";
 
 const GOOD = "x".repeat(MIN_SECRET_LENGTH);
@@ -39,6 +39,6 @@ test("APP_SECRET: in produzione l'avvio si interrompe, in sviluppo solo un avvis
 });
 
 test("APP_SECRET: nessun valore predefinito, con la password impostata senza segreto non c'è sessione", async () => {
-  await withEnv({ APP_PASSWORD: "pw", APP_SECRET: undefined }, () => assert.rejects(() => sessionToken(), AuthConfigError));
-  await withEnv({ APP_PASSWORD: undefined, APP_SECRET: undefined }, async () => assert.equal(await sessionToken(), null));
+  await withEnv({ APP_PASSWORD: "pw", APP_SECRET: undefined }, () => assert.rejects(() => createSession(), AuthConfigError));
+  await withEnv({ APP_PASSWORD: undefined, APP_SECRET: undefined }, async () => assert.equal(await createSession(), null));
 });
