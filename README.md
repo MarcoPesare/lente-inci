@@ -62,6 +62,26 @@ Lavori pianificati per le prossime versioni:
 - Foto ufficiali dei produttori e link d'acquisto tramite feed di affiliazione.
 - Invio a Open Beauty Facts delle correzioni e degli INCI letti dalle foto, così il catalogo cresce anche per gli altri.
 
+## Sicurezza
+
+> **Il progetto non è pronto per un uso pubblico in produzione così com'è.** È una beta da usare in locale o online in forma privata, protetta da password.
+
+**Protezioni presenti**
+
+- Accesso con una password condivisa (`APP_PASSWORD`), confrontata a tempo costante.
+- Sessioni firmate con HMAC-SHA256 e `APP_SECRET`, che scadono dopo 7 giorni e si annullano se cambia la password. In produzione l'app non parte senza un `APP_SECRET` di almeno 32 caratteri.
+- Creazione, modifica e cancellazione di prodotti e foto solo con una sessione valida. Senza password, in produzione queste operazioni sono disattivate.
+- Foto caricate e lettura da foto: limite di 15 MB, controllato prima di leggere il file, e solo immagini raster (niente SVG).
+- Profilo anonimo per dispositivo, senza dati identificativi.
+
+**Limiti ancora presenti**
+
+- **Niente account e ruoli:** chi conosce la password condivisa può modificare o cancellare qualsiasi prodotto del catalogo, e non c'è uno storico delle modifiche.
+- **Niente limiti di frequenza:** né sul login (tentativi di password illimitati), né sulla lettura da foto (ogni richiesta consuma credito Anthropic), né sulle scritture.
+- **Header di sicurezza da completare:** mancano `Content-Security-Policy`, `Strict-Transport-Security`, `X-Frame-Options`, `X-Content-Type-Options` e `Referrer-Policy`.
+- **Ricerca dei codici a barre:** se `APP_PASSWORD` non è impostata, la ricerca in tempo reale su Open Beauty Facts salva nel database i prodotti trovati anche senza sessione, pure quando le altre modifiche al catalogo sono disattivate. Sono dati presi da Open Beauty Facts, non scritti dall'utente.
+- **Dipendenze:** Zod 3 ha un advisory noto (GHSA-mrhx-c7xc-m3w5, consumo di memoria con collezioni molto grandi); il passaggio a Zod 4 è pianificato.
+
 ## Tecnologie
 
 | Parte | Scelta |
@@ -103,7 +123,7 @@ Per provare l'app dal telefono in locale, la fotocamera richiede https: usa `npx
 
 ## Pubblicazione online (beta privata)
 
-> Le scritture sul catalogo non sono ancora protette da account e ruoli (vedi *Limiti noti*): pubblica l'app solo con `APP_PASSWORD` e `APP_SECRET` impostati. Senza `APP_PASSWORD`, in produzione le modifiche al catalogo sono disattivate.
+> Le scritture sul catalogo non sono ancora protette da account e ruoli (vedi *Limiti noti* e *Sicurezza*): pubblica l'app solo con `APP_PASSWORD` e `APP_SECRET` impostati. Senza `APP_PASSWORD`, in produzione le modifiche al catalogo sono disattivate.
 
 1. Crea un database PostgreSQL gratuito su [Neon](https://neon.tech) o [Supabase](https://supabase.com) e copia la stringa di connessione.
 2. Su [Vercel](https://vercel.com) importa questo repository.
