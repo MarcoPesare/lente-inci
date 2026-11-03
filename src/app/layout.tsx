@@ -1,15 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+// Geist dal pacchetto npm (next/font/local): la build non scarica nulla e il browser non contatta Google.
+import { GeistMono } from "geist/font/mono";
+import { GeistSans } from "geist/font/sans";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { ProfileProvider } from "@/components/ProfileProvider";
 import { ToastProvider } from "@/components/Toast";
 import { CompareBar } from "@/components/CompareBar";
 import { SwRegister } from "@/components/SwRegister";
-
-// Font serviti dal nostro dominio (scaricati in fase di build): nessuna richiesta del browser verso Google.
-const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
-const geistMono = Geist_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-geist-mono", display: "swap" });
 
 export const metadata: Metadata = {
   title: { default: "Lente INCI", template: "%s · Lente INCI" },
@@ -25,7 +23,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="it" className={`${geist.variable} ${geistMono.variable}`}>
+    <html lang="it" className={`${GeistSans.variable} ${GeistMono.variable}`}>
       <body>
         <ToastProvider>
           <ProfileProvider>
