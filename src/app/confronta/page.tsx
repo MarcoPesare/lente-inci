@@ -6,6 +6,7 @@ import { analyze, conflicts, FLAGS, scoreTone, type Flag } from "@/lib/inci/engi
 import { api, fmtScore, type Product } from "@/lib/client";
 import { hasProfile, useProfile } from "@/components/ProfileProvider";
 import { Thumb } from "@/components/Thumb";
+import { ObfPhotoCredit } from "@/components/ObfPhotoCredit";
 
 const ROWS: Flag[] = ["FORM", "BAN", "ALL", "PROF", "SOL", "SIL", "ALC", "MIN", "POLY", "PEG", "IRR", "ATT"];
 
@@ -34,6 +35,7 @@ function Inner() {
           {rows.map((f) => <tr key={f}><th>{FLAGS[f].label}</th>{as.map((a, i) => <td key={i}>{a.counts[f] || "–"}</td>)}</tr>)}
         </tbody>
       </table></div>
+      <ObfPhotoCredit items={ps} />
       <div className="panel"><span className="label">In comune ({common.length})</span>
         <p className="hint" style={{ fontFamily: "var(--font-mono)" }}>{common.join(", ") || "Nessun ingrediente in comune."}</p></div>
       <div className="row"><button className="btn ghost" type="button" onClick={clearCompare}>Svuota il confronto</button></div>

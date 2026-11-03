@@ -9,7 +9,7 @@
   --r0:#b8452a; --r1:#a35a1c; --r2:#8a6a10; --r3:#46723a; --r4:#1b7268;
   --r0bg:#fbe9e4; --r1bg:#fdefe3; --r2bg:#fbf3dd; --r3bg:#ebf2e8; --r4bg:#e2f2ef;
   --star:#b97d1c;
-  --scrim:rgba(38,70,83,.42); --tile:#ecf1f1;
+  --tile:#ecf1f1;
   --shadow-sm:0 1px 2px rgba(38,70,83,.06),0 1px 1px rgba(38,70,83,.03);
   --shadow-md:0 10px 30px -14px rgba(38,70,83,.3);
   --maxw:1080px; --radius:20px; --radius-sm:12px; --tabbar-h:64px;
@@ -23,7 +23,7 @@
   --r0:#e76f51; --r1:#f4a261; --r2:#e9c46a; --r3:#8ab17d; --r4:#2fb3a3;
   --r0bg:#3a1f19; --r1bg:#3a2a1a; --r2bg:#353019; --r3bg:#22301f; --r4bg:#133431;
   --star:#e9c46a;
-  --scrim:rgba(0,0,0,.6); --tile:#1e2f35;
+  --tile:#1e2f35;
   --shadow-sm:none; --shadow-md:0 12px 30px -12px rgba(0,0,0,.7); color-scheme:dark}}
 :root[data-theme="dark"]{
   --bg:#0f1a1e; --paper:#16252b; --ink:#e7efef; --muted:#97abb1; --line:#25383f;
@@ -31,7 +31,7 @@
   --r0:#e76f51; --r1:#f4a261; --r2:#e9c46a; --r3:#8ab17d; --r4:#2fb3a3;
   --r0bg:#3a1f19; --r1bg:#3a2a1a; --r2bg:#353019; --r3bg:#22301f; --r4bg:#133431;
   --star:#e9c46a;
-  --scrim:rgba(0,0,0,.6); --tile:#1e2f35;
+  --tile:#1e2f35;
   --shadow-sm:none; --shadow-md:0 12px 30px -12px rgba(0,0,0,.7); color-scheme:dark}
 *{box-sizing:border-box}
 body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent}
@@ -86,6 +86,8 @@ input:focus-visible,textarea:focus-visible,select:focus-visible,button:focus-vis
 .btn[disabled]{opacity:.5;cursor:not-allowed}
 .btn:hover:not([disabled]){filter:brightness(1.12)}
 .hint{font-size:13px;color:var(--muted);margin:0}
+.photo-credit{font-size:12px}
+.photo-credit a{color:inherit}
 .notice{font-size:14px;padding:10px 12px;border-radius:10px;background:var(--accent-soft);color:var(--ink)}
 .notice.warn{background:var(--r1bg)}
 .filters{display:flex;flex-wrap:wrap;gap:6px}
@@ -186,12 +188,6 @@ input:focus-visible,textarea:focus-visible,select:focus-visible,button:focus-vis
 .dict .body{display:grid;gap:8px;padding-top:8px;font-size:14px}
 .linkbtn{background:none;border:0;color:var(--accent);cursor:pointer;padding:0;text-decoration:underline;text-underline-offset:2px;font-size:14px}
 /* pannello */
-.sheet{position:fixed;inset:0;z-index:20;display:grid;place-items:end center;background:var(--scrim)}
-.sheet-in{width:min(820px,100%);max-height:calc(100% - 24px - env(safe-area-inset-top,0px));overflow:auto;background:var(--bg);border-radius:14px 14px 0 0;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:14px calc(24px + env(safe-area-inset-bottom,0px));display:grid;gap:14px;overscroll-behavior:contain}
-.sheet-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
-.sheet-head h2{font-family:var(--font-display);font-size:23px;margin:0;line-height:1.15;text-wrap:balance}
-.sheet-head .s{color:var(--muted);font-size:14px}
-.x{border:1px solid var(--line);background:var(--paper);border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:18px;flex:none}
 .gtin{font-family:var(--font-mono);font-size:12px;color:var(--muted)}
 /* confronto */
 .cmpbar{position:fixed;left:12px;right:12px;bottom:calc(var(--tabbar-h) + 10px + env(safe-area-inset-bottom,0px));z-index:15;background:var(--ink);color:var(--paper);border-radius:16px;padding:10px 12px 10px 16px;box-shadow:0 10px 30px -10px rgba(0,0,0,.5);max-width:620px;margin:0 auto}
@@ -211,7 +207,6 @@ td.big{font-family:var(--font-display);font-weight:700;font-size:22px;font-varia
 .toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--tabbar-h) + 16px + env(safe-area-inset-bottom,0px));z-index:30;background:var(--ink);color:var(--paper);padding:10px 16px;border-radius:12px;font-size:14px;max-width:min(90vw,520px);box-shadow:0 10px 30px -10px rgba(0,0,0,.5)}
 @media (min-width:900px){.toast{bottom:24px}}
 details.method p,details.method li{color:var(--muted);font-size:14px}
-@media (prefers-reduced-motion:no-preference){.sheet-in{animation:up .22s ease-out}@keyframes up{from{transform:translateY(24px);opacity:.6}to{transform:none;opacity:1}}}
 
 html,body{margin:0}
 a{color:var(--accent)}

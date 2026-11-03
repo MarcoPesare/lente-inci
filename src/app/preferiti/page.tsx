@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { api, type Product } from "@/lib/client";
 import { CardList } from "@/components/ProductCard";
+import { ObfPhotoCredit } from "@/components/ObfPhotoCredit";
 import { useProfile } from "@/components/ProfileProvider";
 
 export default function FavPage() {
@@ -17,6 +18,7 @@ export default function FavPage() {
       {fav === null ? <p className="empty"><span className="spinner" /></p> : <CardList items={fav} empty="Nessun preferito. Tocca la stella su un prodotto per salvarlo qui." />}
       <h2 className="vh">Visti di recente</h2>
       {hist === null ? <p className="empty"><span className="spinner" /></p> : <CardList items={hist} empty="Qui compaiono i prodotti che apri." />}
+      <ObfPhotoCredit items={[...(fav ?? []), ...(hist ?? [])]} />
     </div>
   );
 }

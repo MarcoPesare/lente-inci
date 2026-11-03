@@ -15,7 +15,7 @@ self.addEventListener("fetch", (e) => {
   if (url.origin !== location.origin) return;
   // API: sempre dalla rete, foto in cache dopo il primo caricamento
   if (url.pathname.startsWith("/api/")) {
-    if (url.pathname.startsWith("/api/photos/") || url.pathname.startsWith("/api/img/")) {
+    if (url.pathname.startsWith("/api/img/")) {
       e.respondWith(caches.open(CACHE).then(async (c) => (await c.match(req)) || fetch(req).then((r) => { if (r.ok) c.put(req, r.clone()); return r; })));
     }
     return;

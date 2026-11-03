@@ -5,6 +5,7 @@ import { use, useEffect, useState } from "react";
 import { Icon } from "@/components/Icon";
 import { api, shrinkImage, type Product } from "@/lib/client";
 import { CardList } from "@/components/ProductCard";
+import { ObfPhotoCredit } from "@/components/ObfPhotoCredit";
 import { useProfile, hasProfile } from "@/components/ProfileProvider";
 import { Report } from "@/components/Report";
 import { Thumb } from "@/components/Thumb";
@@ -86,6 +87,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
         <h3 className="sh">Alternative migliori</h3>
         <p className="hint">Stessa categoria, voto più alto{hasProfile(profile) ? ", adatte al tuo profilo" : ""}.</p>
         <CardList items={alts} empty={`Nessuna alternativa con voto più alto${hasProfile(profile) ? " e adatta al tuo profilo" : ""}, per ora.`} />
+        <ObfPhotoCredit items={alts} />
       </div>
       {p.origin === "obf"
         ? <p className="hint">Dati da <a href={`https://world.openbeautyfacts.org/product/${p.gtin}`} target="_blank" rel="noopener noreferrer">Open Beauty Facts</a> (licenza ODbL), inseriti da volontari: in caso di dubbio vale l&apos;etichetta.</p>

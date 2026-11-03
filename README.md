@@ -4,27 +4,47 @@
 
 Web app per analizzare gli ingredienti (INCI) dei cosmetici. Funziona dal browser sia su computer sia su telefono e si può **installare sulla schermata Home** come un'app (PWA), senza App Store né TestFlight.
 
-<!-- screenshot -->
+## Schermate
+
+Le schermate usano solo dati di catalogo e prodotti di esempio.
+
+**Ricerca.** Risultati con il voto di ogni prodotto, filtri per categoria e attribuzione del catalogo.
+
+![Ricerca di "cerave hydrating cleanser" con tre risultati e voti da 80 a 88](docs/screenshots/desktop-ricerca.webp)
+
+**Scheda prodotto.** Voto su 100, distribuzione dei giudizi, segnalazioni e analisi di ogni ingrediente.
+
+![Scheda di CeraVe Hydrating Facial Cleanser con voto 88 su 100](docs/screenshots/desktop-prodotto.webp)
+
+**Confronto.** Fino a 3 prodotti affiancati, con voto, segnalazioni e ingredienti in comune.
+
+![Confronto tra due detergenti viso del catalogo e uno shampoo dei prodotti di esempio](docs/screenshots/desktop-confronto.webp)
+
+**Profilo.** Le famiglie di ingredienti e gli ingredienti specifici da evitare: i prodotti che li contengono vengono segnalati.
+
+![Profilo con siliconi, solfati, profumo e Methylisothiazolinone da evitare](docs/screenshots/desktop-profilo.webp)
+
+**Da telefono.** Scheda prodotto, confronto e profilo.
+
+<p>
+  <img src="docs/screenshots/mobile-prodotto.webp" width="260" alt="Scheda prodotto su telefono">
+  <img src="docs/screenshots/mobile-confronto.webp" width="260" alt="Confronto su telefono">
+  <img src="docs/screenshots/mobile-profilo.webp" width="260" alt="Profilo su telefono">
+</p>
 
 ## Cosa fa
+
+Tutte le funzioni elencate qui sono già funzionanti nella beta.
 
 - **Ricerca** per nome, marca o codice a barre nel catalogo (Open Beauty Facts, circa 42.000 prodotti) e nei prodotti aggiunti a mano.
 - **Codice a barre dal vivo** con la fotocamera (lettore nativo su Android/Chrome, ZXing su iPhone). Se il codice non è nel database, l'app lo cerca **in tempo reale su Open Beauty Facts** e lo salva.
 - **Analisi INCI** con voto da 0 a 100, scheda di ogni ingrediente e segnalazioni (siliconi, solfati, allergeni UE, profumo, alcol, PEG, derivati del petrolio, conservanti che rilasciano formaldeide, sostanze vietate in UE).
 - **Lettura dell'INCI da foto** dell'etichetta con Claude (facoltativa, serve una chiave API Anthropic).
 - **Foto dei prodotti**: quelle del catalogo, oppure scattate da te e salvate in WebP a 480 px (circa 20–40 KB). Le miniature sono normalizzate dal server: quadrate, con il prodotto intero.
-- **Profilo personale** con gli ingredienti da evitare, **alternative migliori**, **confronto** fino a 3 prodotti, **preferiti** e **cronologia**. Il profilo è anonimo e vale per un solo dispositivo: non viene sincronizzato tra dispositivi diversi.
+- **Profilo personale** con gli ingredienti da evitare, **alternative migliori**, **confronto** fino a 3 prodotti, **preferiti** e **cronologia**. Il profilo è anonimo e vale per un solo dispositivo: non viene sincronizzato tra dispositivi diversi. I dati del profilo si possono esportare e cancellare.
+- **App installabile** (PWA), utilizzabile da telefono e da computer.
 
 ## Stato del progetto (beta)
-
-### Funziona
-
-- Ricerca per nome, marca e codice a barre su circa 42.000 prodotti (Open Beauty Facts) e su quelli aggiunti a mano.
-- Scansione del codice a barre dalla fotocamera, con ricerca in tempo reale su Open Beauty Facts per i codici mancanti.
-- Analisi INCI con voto da 0 a 100, scheda di ogni ingrediente e segnalazioni (siliconi, solfati, allergeni UE…).
-- Preferiti, cronologia, ingredienti da evitare, confronto fino a 3 prodotti e alternative migliori.
-- App installabile (PWA) e utilizzabile da telefono e da computer.
-- Profilo anonimo per dispositivo, con esportazione e cancellazione dei dati.
 
 ### Limiti noti
 
@@ -39,8 +59,8 @@ Web app per analizzare gli ingredienti (INCI) dei cosmetici. Funziona dal browse
 Lavori pianificati per le prossime versioni:
 
 - Account utente e ruoli, con modifiche al catalogo riservate ai moderatori.
-- Foto da catalogo e link d'acquisto tramite feed di affiliazione.
-- Invio a Open Beauty Facts degli INCI letti dalle foto, così il catalogo cresce anche per gli altri.
+- Foto ufficiali dei produttori e link d'acquisto tramite feed di affiliazione.
+- Invio a Open Beauty Facts delle correzioni e degli INCI letti dalle foto, così il catalogo cresce anche per gli altri.
 
 ## Tecnologie
 
@@ -64,8 +84,8 @@ cp .env.example .env
 docker compose up -d          # PostgreSQL su localhost:5432
 npm install
 npm run db:migrate            # crea le tabelle
-npm run db:seed               # 21 prodotti verificati a mano
-npm run import:obf            # scarica e importa Open Beauty Facts (circa 42.000 prodotti)
+npm run db:seed               # 21 prodotti trascritti a mano da schede pubbliche
+npm run import:obf            # scarica circa 18 MB e importa Open Beauty Facts (circa 42.000 prodotti, circa 30 secondi)
 npm run dev                   # http://localhost:3000
 ```
 
@@ -77,7 +97,7 @@ Se il download automatico non funziona, scarica a mano il file `en.openbeautyfac
 npm run import:obf -- --file percorso/del/file.csv.gz
 ```
 
-Con `--only-inci` importi solo i prodotti che hanno la lista ingredienti. Senza, vengono importati anche quelli senza INCI: la scansione li riconosce e l'app ti propone di completarli fotografando l'etichetta.
+Con `--only-inci` importi solo i prodotti che hanno la lista ingredienti. Senza, vengono importati anche quelli senza INCI: la scansione li riconosce e l'app ti propone di completarli, scrivendo l'INCI a mano oppure fotografando l'etichetta (la lettura da foto richiede `ANTHROPIC_API_KEY`).
 
 Per provare l'app dal telefono in locale, la fotocamera richiede https: usa `npx next dev --experimental-https` oppure pubblica online come indicato sotto.
 
@@ -126,14 +146,14 @@ Per provare l'app dal telefono in locale, la fotocamera richiede https: usa `npx
 
 ## Come viene calcolato il voto
 
-Il voto va da 0 a 100 e nasce da regole fisse, non da un'intelligenza artificiale. Ogni ingrediente ha un giudizio su cinque livelli, da "da evitare" a "ottimo", basato su sicurezza, tollerabilità e utilità; i riferimenti sono il regolamento cosmetico UE 1223/2009 e i pareri del comitato scientifico europeo SCCS. Gli ingredienti in cima alla lista pesano di più. Nei prodotti da risciacquare, profumi, allergeni, solfati e irritanti valgono un gradino in più. Gli ingredienti vietati o che rilasciano formaldeide abbassano il voto anche se sono in fondo. Sotto il 70% di ingredienti riconosciuti il voto è segnalato come poco affidabile, sotto il 50% non entra in classifica. Il voto misura la qualità degli ingredienti, non l'efficacia del prodotto.
+Il voto va da 0 a 100 e nasce da regole fisse, non da un'intelligenza artificiale. Ogni ingrediente ha un giudizio su cinque livelli, da "da evitare" a "ottimo", basato su sicurezza, tollerabilità e utilità; i riferimenti sono il regolamento cosmetico UE 1223/2009 e i pareri del comitato scientifico europeo SCCS. Gli ingredienti in cima alla lista pesano di più. Nei prodotti da risciacquare profumi, allergeni, solfati e irritanti pesano un gradino in meno, perché restano poco a contatto con la pelle. Gli ingredienti vietati o che rilasciano formaldeide abbassano il voto anche se sono in fondo. Sotto il 70% di ingredienti riconosciuti il voto è segnalato come poco affidabile, sotto il 50% non entra in classifica. Il voto misura la qualità degli ingredienti, non l'efficacia del prodotto.
 
 ## Struttura
 
 ```
 src/
   app/              pagine e API (Next.js App Router)
-    api/            prodotti, codice a barre, foto, miniature, profilo, lettura da foto, accesso
+    api/            prodotti, codice a barre, caricamento foto, miniature, profilo, lettura da foto, accesso
   components/       interfaccia (scheda prodotto, analisi, lettore codici…)
   lib/
     inci/           motore di analisi e dizionario ingredienti
@@ -153,8 +173,8 @@ Il progetto è ideato e diretto da me: requisiti, scelte di architettura, revisi
 
 - **Catalogo prodotti:** dati di [Open Beauty Facts](https://world.openbeautyfacts.org) sotto [Open Database License (ODbL) 1.0](https://opendatacommons.org/licenses/odbl/1-0/); i singoli contenuti sotto [Database Contents License 1.0](https://opendatacommons.org/licenses/dbcl/1-0/). © Open Beauty Facts contributors. I dati sono inseriti da volontari e possono essere incompleti o riferiti a vecchie formule: in caso di dubbio vale l'etichetta.
 - **Foto dei prodotti del catalogo:** © Open Beauty Facts contributors, sotto [Creative Commons Attribution-ShareAlike 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.it) (CC BY-SA 3.0), come indicato nelle [condizioni d'uso di Open Beauty Facts](https://world.openbeautyfacts.org/terms-of-use). Le miniature mostrate dall'app sono versioni ritagliate e ridimensionate, distribuite con la stessa licenza.
-- **Correzioni degli utenti al catalogo:** le modifiche ai prodotti di Open Beauty Facts fatte nell'app sono rilasciate sotto la stessa licenza ODbL 1.0.
+- **Correzioni degli utenti al catalogo:** le modifiche ai prodotti di Open Beauty Facts fatte nell'app sono dati derivati da Open Beauty Facts e restano sotto la licenza ODbL 1.0. È previsto il loro invio a Open Beauty Facts (vedi *In sviluppo*).
 - **Prodotti di esempio** (`data/seed-products.json`): liste INCI trascritte dalle fonti indicate nel campo `source` di ciascun prodotto (schede prodotto dm, Skinsort, INCIDecoder).
-- **Dizionario degli ingredienti** (`src/lib/inci/ingredients.json`): contenuto originale del progetto. I giudizi sono nostri e non provengono da una fonte ufficiale; è rilasciato sotto [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/deed.it) (CC BY 4.0).
+- **Dizionario degli ingredienti** (`src/lib/inci/ingredients.json`): contenuto originale del progetto. I giudizi sono miei e non provengono da una fonte ufficiale; è rilasciato sotto [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/deed.it) (CC BY 4.0).
 - **Font:** Geist (Vercel), sotto SIL Open Font License 1.1, incluso tramite il pacchetto npm `geist`.
 - **Codice:** licenza [MIT](LICENSE). La licenza MIT copre **solo il codice** del progetto, non i dati, le foto e il dizionario elencati sopra, che restano sotto le rispettive licenze.
